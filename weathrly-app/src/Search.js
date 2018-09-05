@@ -8,7 +8,7 @@ class Search extends Component {
 	render() {
 		return (
 			<form className="search">
-			<input type="search" placeholder="Enter city or zip code">
+			<input type="search" placeholder="Enter city or zip code" className="search-input">
 			</input>
 			</form>
 			);

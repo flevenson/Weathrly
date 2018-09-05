@@ -2,16 +2,17 @@
   background-color: #1f1d20;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 75vh 25vh;
 /*  grid-template-areas: 
   'current current header'
   'forecast forecast forecast';*/
   text-align: center;
-}git
+}
 
 .banner-image {
   /*grid-area: header;*/
-  grid-column: 2/span 1;
+  grid-column: 2 /span 1;
+  grid-row: 1 / span 1;
 }
 
 .welcome {
@@ -23,3 +24,8 @@
   grid-row: 1/span 2;
 }
 
+.search {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+
+}
