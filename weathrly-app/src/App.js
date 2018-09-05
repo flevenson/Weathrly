@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Banner from './Banner.js';
 import Welcome from './Welcome.js';
+import Search from './Search.js';
 
 class App extends Component {
   render() {

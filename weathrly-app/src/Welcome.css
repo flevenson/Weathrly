@@ -5,3 +5,8 @@
 	position: absolute;
 	opacity: 0.5;
 }
+
+.welcome-title {
+	font-size: 10rem;
+	opacity: 1.0;
+}
