@@ -4,13 +4,16 @@ import './App.css';
 import Banner from './Banner.js';
 import Welcome from './Welcome.js';
 import Search from './Search.js';
+import CurrentWeather from './currentWeather.js'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Search />
         <Banner />
-       <Welcome />
+        <CurrentWeather />
+       {/* <Welcome /> */}
       </div>
     );
   }

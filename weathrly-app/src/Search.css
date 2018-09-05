@@ -1,3 +1,8 @@
 .search {
+}
 
+.search-input {
+  width: 27rem;
+  font-size: 5rem;
+  background-color: #fffffe;
 }
