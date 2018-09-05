@@ -1,0 +1,12 @@
+.welcome {
+	height: 100vh;
+	width: 100vw;
+	background-color: gray;
+	position: absolute;
+	opacity: 0.5;
+}
+
+.welcome-title {
+	font-size: 10rem;
+	opacity: 1.0;
+}
