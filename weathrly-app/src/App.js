@@ -19,14 +19,7 @@ class App extends Component {
       <div className="App">
         <Search />
         <Banner />
-        <CurrentWeather place={mockData.current_observation.display_location.full}
-                        temperature={mockData.current_observation.temp_f}
-                        weatherDescription={mockData.current_observation.weather}
-                        date={mockData.current_observation.local_time_rfc822}
-                        high={mockData.forecast.simpleforecast.forecastday[0].high.fahrenheit}
-                        low={mockData.forecast.simpleforecast.forecastday[0].low.fahrenheit}
-                        detailDescription={mockData.forecast.txt_forecast.forecastday[0].fcttext}
-          />
+        <CurrentWeather data={mockData} />
        {/* <Welcome /> */}
       </div>
     );
