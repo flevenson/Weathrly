@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import './currentWeather.css';
+import data from './mockData.js'
+
+
 
 class CurrentWeather extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      place: this.place
+    }
   }
   render() {
     return(
       <div className="currentWeatherComponent">
-        <h2 className="currentCity">Denver</h2>
+        <h2 className="currentCity">{this.props.place}</h2>
         <h1 className="currentTemp">98°</h1>
         <section>
           <i className="fas fa-umbrella currentIcon"></i>

@@ -5,6 +5,13 @@ import Banner from './Banner.js';
 import Welcome from './Welcome.js';
 import Search from './Search.js';
 import CurrentWeather from './currentWeather.js'
+import data from './mockData.js'
+
+const mockData = data
+
+
+console.log(mockData)
+// console.log(mockData.current_observation.display_location.full)
 
 class App extends Component {
   render() {
@@ -12,7 +19,7 @@ class App extends Component {
       <div className="App">
         <Search />
         <Banner />
-        <CurrentWeather />
+        <CurrentWeather place={mockData.current_observation.display_location.full}/>
        {/* <Welcome /> */}
       </div>
     );
