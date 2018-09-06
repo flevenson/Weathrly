@@ -9,22 +9,28 @@ class CurrentWeather extends Component {
     super(props);
 
     this.state = {
-      place: this.place
+      place: this.place,
+      temperature: this.temperature,
+      weatherDescription: this.weatherDescription,
+      date: this.date,
+      high: this.high,
+      low: this.low,
+      detailDescription: this.detailDescription
     }
   }
   render() {
     return(
       <div className="currentWeatherComponent">
-        <h2 className="currentCity">{this.props.place}</h2>
-        <h1 className="currentTemp">98°</h1>
+        <h2 className="currentCity">Your Location: {this.props.place}</h2>
+        <h1 className="currentTemp">Current Temp: {this.props.temperature}°</h1>
         <section>
           <i className="fas fa-umbrella currentIcon"></i>
-          <h6 className="currentConditions">Rainy AF!!!</h6>
+          <h6 className="currentConditions">Today's Conditions: {this.props.weatherDescription}</h6>
         </section>
-        <h3 className="currentDate">June 06 2006</h3>
-        <h2 className="currentHigh">High: 120°</h2>
-        <h2 className="currentLow">Low: -69°</h2>
-        <p className="currentDescription">Cloudy with a chance of Meatballs, don't forget your umbrella and a plate!</p>
+        <h3 className="currentDate">Today's Date: {this.props.date.substr(0, 14)}</h3>
+        <h2 className="currentHigh">Daily High: {this.props.high}°</h2>
+        <h2 className="currentLow">Daily Low: {this.props.low}°</h2>
+        <p className="currentDescription">What to expect: {this.props.detailDescription}</p>
       </div>
       );
   }
