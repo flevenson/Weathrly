@@ -18,13 +18,14 @@ class CurrentWeather extends Component {
       detailDescription: this.detailDescription
     }
   }
+  
   render() {
     return(
       <div className="currentWeatherComponent">
         <h2 className="currentCity">Your Location: {this.props.data.current_observation.display_location.full}</h2>
         <h1 className="currentTemp">Current Temp: {this.props.data.current_observation.temp_f}°</h1>
         <section>
-          <i className="fas fa-umbrella currentIcon"></i>
+          <img src={this.props.data.current_observation.icon_url} />
           <h6 className="currentConditions">Today's Conditions: {this.props.data.current_observation.weather}</h6>
         </section>
         <h3 className="currentDate">Today's Date: {this.props.data.current_observation.local_time_rfc822.substr(0, 14)}</h3>

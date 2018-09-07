@@ -6,6 +6,8 @@ import Welcome from './Welcome.js';
 import Search from './Search.js';
 import CurrentWeather from './currentWeather.js'
 import data from './mockData.js'
+import Hourly from './Hourly.js';
+// import Card from './Card.js';
 
 const mockData = data
 
@@ -20,6 +22,7 @@ class App extends Component {
         <Search />
         <Banner />
         <CurrentWeather data={mockData} />
+        <Hourly data={mockData} />
        {/* <Welcome /> */}
       </div>
     );
