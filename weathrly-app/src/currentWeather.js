@@ -20,6 +20,20 @@ class CurrentWeather extends Component {
   }
   
   render() {
+    let currentTempUnit
+    let degreeHighUnit
+    let degreeLowUnit
+
+    if(this.props.degreeUnit){
+      currentTempUnit = this.props.data.current_observation.temp_f;
+      degreeHighUnit = this.props.data.forecast.simpleforecast.forecastday[0].high.fahrenheit;
+      degreeLowUnit = this.props.data.forecast.simpleforecast.forecastday[0].low.fahrenheit;
+    } else {
+      currentTempUnit = this.props.data.current_observation.temp_c;
+      degreeHighUnit = this.props.data.forecast.simpleforecast.forecastday[0].high.celsius;
+      degreeLowUnit = this.props.data.forecast.simpleforecast.forecastday[0].low.celsius;
+    }
+
     return(
       <div className="currentWeatherComponent">
         <h2 className="currentCity">
@@ -28,7 +42,7 @@ class CurrentWeather extends Component {
         </h2>
         <h1 className="currentTemp">
           Current Temp: 
-          {this.props.data.current_observation.temp_f}°
+          {currentTempUnit}°
         </h1>
         <section>
           <img src={this.props.data.current_observation.icon_url} />
@@ -43,11 +57,11 @@ class CurrentWeather extends Component {
         </h3>
         <h2 className="currentHigh">
           Daily High: 
-          {this.props.data.forecast.simpleforecast.forecastday[0].high.fahrenheit}°
+          {degreeHighUnit}°
         </h2>
         <h2 className="currentLow">
           Daily Low: 
-          {this.props.data.forecast.simpleforecast.forecastday[0].low.fahrenheit}°
+          {degreeLowUnit}°
         </h2>
         <p className="currentDescription">
           What to expect: 
