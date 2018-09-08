@@ -1,0 +1,8 @@
+.hourly-container {
+	background-color: #FFF;
+	height: 35%;
+	margin: 0 auto;
+	width: 10%;
+	grid-column: 1/span 2;  
+  grid-row: 2/span 1;
+}
