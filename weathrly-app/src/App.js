@@ -22,9 +22,11 @@ class App extends Component {
     this.state = {
       data,
       currentDisplay: '',
-      tenSevenToggle: true
+      tenSevenToggle: true,
+      fahrCelsToggle: true
     }
-    this.toggleForecastDisplay = this.toggleForecastDisplay.bind(this)
+    this.toggleForecastDisplay = this.toggleForecastDisplay.bind(this);
+    this.toggleFahrCels = this.toggleFahrCels.bind(this)
     }
   // handleClick = (data) => {
   //   // const newClickProperty = !this.state.clicked
@@ -37,25 +39,33 @@ class App extends Component {
   toggleForecastDisplay() {
     this.setState(state => ({
       tenSevenToggle: !state.tenSevenToggle
+    })); 
+  }
+
+  toggleFahrCels() {
+    this.setState(state => ({
+      fahrCelsToggle: !state.fahrCelsToggle
     }));
-    
   }
 
   render() {
     let display
 
     if(this.state.tenSevenToggle){
-      display = <Hourly data={this.state.data} />
+      display = <Hourly data={this.state.data} degreeUnit={this.state.fahrCelsToggle} />
     } else {
-      display = <Daily data={this.state.data} />
+      display = <Daily data={this.state.data} degreeUnit={this.state.fahrCelsToggle} />
     }
 
     return (
       <div className="App">
        {/*<button className="test-button" onClick={() => this.handleClick('currentWeather')}>current weather</button>*/}
-        <Banner />
-        <Search />
-        <CurrentWeather data={this.state.data} />
+        <div className='main-section'>
+          <Banner />
+          <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °F' : 'Change to °C'} </button>
+          <Search />
+        </div>
+        <CurrentWeather data={this.state.data} degreeUnit={this.state.fahrCelsToggle} />
         <div className='forecast-holder'>
           <div className='display-info' >
             <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>

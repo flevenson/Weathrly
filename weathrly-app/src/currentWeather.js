@@ -22,16 +22,37 @@ class CurrentWeather extends Component {
   render() {
     return(
       <div className="currentWeatherComponent">
-        <h2 className="currentCity">Your Location: {this.props.data.current_observation.display_location.full}</h2>
-        <h1 className="currentTemp">Current Temp: {this.props.data.current_observation.temp_f}°</h1>
+        <h2 className="currentCity">
+          Your Location: 
+          {this.props.data.current_observation.display_location.full}
+        </h2>
+        <h1 className="currentTemp">
+          Current Temp: 
+          {this.props.data.current_observation.temp_f}°
+        </h1>
         <section>
           <img src={this.props.data.current_observation.icon_url} />
-          <h6 className="currentConditions">Today's Conditions: {this.props.data.current_observation.weather}</h6>
+          <h6 className="currentConditions">
+            Today's Conditions: 
+            {this.props.data.current_observation.weather}
+          </h6>
         </section>
-        <h3 className="currentDate">Today's Date: {this.props.data.current_observation.local_time_rfc822.substr(0, 14)}</h3>
-        <h2 className="currentHigh">Daily High: {this.props.data.forecast.simpleforecast.forecastday[0].high.fahrenheit}°</h2>
-        <h2 className="currentLow">Daily Low: {this.props.data.forecast.simpleforecast.forecastday[0].low.fahrenheit}°</h2>
-        <p className="currentDescription">What to expect: {this.props.data.forecast.txt_forecast.forecastday[0].fcttext}</p>
+        <h3 className="currentDate">
+          Today's Date: 
+          {this.props.data.current_observation.local_time_rfc822.substr(0, 14)}
+        </h3>
+        <h2 className="currentHigh">
+          Daily High: 
+          {this.props.data.forecast.simpleforecast.forecastday[0].high.fahrenheit}°
+        </h2>
+        <h2 className="currentLow">
+          Daily Low: 
+          {this.props.data.forecast.simpleforecast.forecastday[0].low.fahrenheit}°
+        </h2>
+        <p className="currentDescription">
+          What to expect: 
+          {this.props.data.forecast.txt_forecast.forecastday[0].fcttext}
+        </p>
       </div>
       );
   }
