@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+
 import './Hourly.css';
-import Card from './Card';
+import SevenHourCard from './SevenHourCard';
+import data from './mockData.js';
 
 class Hourly extends Component {
 	constructor(props) {
@@ -10,34 +12,22 @@ class Hourly extends Component {
 			hour: this.hour,
 			temperature: this.temperature
 		}
-
 	}
-
 
 	render() {
-
-		return (
-			<div className="hourly-container">
-				this.data.hourly_forecast.map((hour) => {
-					for (let i = 0; i <= 6; i++) {
-						return(
-							<div>
-								<Card />
-							</div>
-						);
-					}
-				})
-			</div>
-		)
-
-	}
-
-
+		return (this.props.data.hourly_forecast.map((hour) => {
+			return (
+				<div className="hourly-container">
+					<SevenHourCard hour={hour}/>
+				</div>
+			)
+	}).slice(0, 7))
 
 
 }
 
 
+}
 
 
 

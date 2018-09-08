@@ -1,7 +1,7 @@
 .banner-image {
-	background-image: url("./main-banner-image.jpg");
+	background-image: url("./sun.svg");
 	background-size: cover;
-	width: 25rem;
-	height: 25rem;
-  margin-top: 100px;
+	width: 20rem;
+	height: 20rem;
+  margin: 0 auto;
 }
