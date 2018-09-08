@@ -18,7 +18,7 @@ class Hourly extends Component {
 		return (this.props.data.hourly_forecast.map((hour) => {
 			return (
 				<div className="hourly-container">
-					<SevenHourCard hour={hour}/>
+					<SevenHourCard hour={hour} />
 				</div>
 			)
 	}).slice(0, 7))
