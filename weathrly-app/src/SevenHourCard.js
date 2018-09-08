@@ -11,11 +11,20 @@ class SevenHourCard extends Component {
 	}
 
 	render() {
+		let currentTempUnit
+
+		if(this.props.degreeUnit) {
+			currentTempUnit = this.props.hour.temp.english;
+		} else {
+			currentTempUnit = this.props.hour.temp.metric;
+		}
+
+
 		return (
 			<div className="seven-hour">
 				<p>{this.props.hour.FCTTIME.civil}</p>
 				<img src={this.props.hour.icon_url}/>
-				<p>{this.props.hour.temp.english}°</p>
+				<p>{currentTempUnit}°</p>
 			</div>
 			);
 	}

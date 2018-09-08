@@ -11,12 +11,23 @@ class TenDayCard extends Component {
 	}
 
 	render() {
+		let degreeHighUnit
+		let degreeLowUnit
+
+		if (this.props.degreeUnit) {
+			degreeHighUnit = this.props.day.high.fahrenheit;
+			degreeLowUnit = this.props.day.low.fahrenheit
+		} else {
+			degreeHighUnit = this.props.day.high.celsius;
+			degreeLowUnit = this.props.day.low.celsius;
+		}
+
 		return(
 			<div className="ten-day">
 				<p>{this.props.day.date.weekday_short}</p>
 				<img src={this.props.day.icon_url}/>
-				<p>{this.props.day.high.fahrenheit}</p>
-				<p>{this.props.day.low.fahrenheit}</p>
+				<p>{degreeHighUnit}°</p>
+				<p>{degreeLowUnit}°</p>
 			</div>
 			);
 	}

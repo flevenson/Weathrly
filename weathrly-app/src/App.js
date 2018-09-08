@@ -62,7 +62,7 @@ class App extends Component {
        {/*<button className="test-button" onClick={() => this.handleClick('currentWeather')}>current weather</button>*/}
         <div className='main-section'>
           <Banner />
-          <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °F' : 'Change to °C'} </button>
+          <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
           <Search />
         </div>
         <CurrentWeather data={this.state.data} degreeUnit={this.state.fahrCelsToggle} />
