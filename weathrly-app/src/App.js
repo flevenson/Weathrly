@@ -13,18 +13,19 @@ import Daily from './Daily.js';
 // const mockData = data
 
 
-console.log(data)
 // console.log(mockData.current_observation.display_location.full)
 
 class App extends Component {
   constructor() {
     super()
+
     this.state = {
       data,
-      currentDisplay: ''
+      currentDisplay: '',
+      tenSevenToggle: true
     }
-  }
-
+    this.toggleForecastDisplay = this.toggleForecastDisplay.bind(this)
+    }
   // handleClick = (data) => {
   //   // const newClickProperty = !this.state.clicked
   //   this.setState ({
@@ -32,33 +33,38 @@ class App extends Component {
   //   })
   // }
 
+
+  toggleForecastDisplay() {
+    this.setState(state => ({
+      tenSevenToggle: !state.tenSevenToggle
+    }));
+    
+  }
+
   render() {
+    let display
+
+    if(this.state.tenSevenToggle){
+      display = <Hourly data={this.state.data} />
+    } else {
+      display = <Daily data={this.state.data} />
+    }
+
     return (
       <div className="App">
        {/*<button className="test-button" onClick={() => this.handleClick('currentWeather')}>current weather</button>*/}
         <Banner />
         <Search />
         <CurrentWeather data={this.state.data} />
-        <div className='hour-holder'>
-        <div className="button-container">
-          <button>7 Hour</button>
-          <button>10 Day</button>
-          <button>F°</button>
-          <button>C°</button>
+        <div className='forecast-holder'>
+          <div className='display-info' >
+            <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
+            <button onClick={this.toggleForecastDisplay}> {this.state.tenSevenToggle ? 'Show Ten Day Forecast' : 'Show Seven Hour Forecast'} </button>
+          </div>
+          <div className='card-holder'>
+            {display} 
+          </div>
         </div>
-          <Hourly data={this.state.data} />
-        </div>
-
-        <div className='day-holder'>
-        <div className="button-container">
-          <button>7 Hour</button>
-          <button>10 Day</button>
-          <button>F°</button>
-          <button>C°</button>
-        </div>
-          <Daily data={this.state.data} />
-        </div>
-
 
       </div>
     );

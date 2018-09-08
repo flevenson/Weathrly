@@ -29,16 +29,23 @@
   grid-row: 1 / span 1;
 }
 
-.hour-holder, .day-holder {
+.forecast-holder {
   display: flex;
+  flex-direction: column;
   background-color: white;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   border-radius: 10px;
   margin: 0 auto;
   width: 90%;
+  grid-column: 1 / span 2;
 }
 
+.card-holder {
+  display:flex;
+  width: 100%;
+  justify-content: space-around;
+}
 
 
 /*.test-button {
