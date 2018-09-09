@@ -8,9 +8,12 @@ import CurrentWeather from './currentWeather.js'
 import data from './mockData.js'
 import Hourly from './Hourly.js';
 import Daily from './Daily.js';
+import apiKey from './apiKey.js';
 // import Card from './Card.js';
 
 // const mockData = data
+
+const apiData = `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/CO/Denver.json`
 
 
 // console.log(mockData.current_observation.display_location.full)
@@ -20,6 +23,7 @@ class App extends Component {
     super()
 
     this.state = {
+      weatherData: [],
       data,
       currentDisplay: '',
       tenSevenToggle: true,
@@ -35,6 +39,18 @@ class App extends Component {
   //   })
   // }
 
+  componentDidMount() {
+    fetch(apiData)
+  .then(data => data.json())
+  .then(data => console.log(data))
+  .then(data => {
+    this.setState(state=> ({
+      weatherData: data
+    }))
+  })
+  .catch(err => console.log('ERROR'))
+
+  }
 
   toggleForecastDisplay() {
     this.setState(state => ({
