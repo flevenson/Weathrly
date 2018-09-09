@@ -19,42 +19,43 @@ class CurrentWeather extends Component {
     }
   }
   
+
   render() {
     let currentTempUnit
     let degreeHighUnit
     let degreeLowUnit
 
-    if(this.props.degreeUnit){
-      // console.log(this.props.data)
-      currentTempUnit = this.props.data.current_observation.temp_f;
-      degreeHighUnit = this.props.data.forecast.simpleforecast.forecastday[0].high.fahrenheit;
-      degreeLowUnit = this.props.data.forecast.simpleforecast.forecastday[0].low.fahrenheit;
-    } else {
-      currentTempUnit = this.props.data.current_observation.temp_c;
-      degreeHighUnit = this.props.data.forecast.simpleforecast.forecastday[0].high.celsius;
-      degreeLowUnit = this.props.data.forecast.simpleforecast.forecastday[0].low.celsius;
+    if(this.props.degreeUnit && this.props.weatherData){
+      currentTempUnit = this.props.weatherData.current_observation.temp_f;
+      degreeHighUnit = this.props.weatherData.forecast.simpleforecast.forecastday[0].high.fahrenheit;
+      degreeLowUnit = this.props.weatherData.forecast.simpleforecast.forecastday[0].low.fahrenheit;
+    } else if (this.props.weatherData) {
+      currentTempUnit = this.props.weatherData.current_observation.temp_c;
+      degreeHighUnit = this.props.weatherData.forecast.simpleforecast.forecastday[0].high.celsius;
+      degreeLowUnit = this.props.weatherData.forecast.simpleforecast.forecastday[0].low.celsius;
     }
-
+    if(!this.props.weatherData){ 
+      return(null)} else{
     return(
       <div className="currentWeatherComponent">
         <h2 className="currentCity">
           Your Location: 
-          {this.props.data.current_observation.display_location.full}
+          {this.props.weatherData.current_observation.display_location.full}
         </h2>
         <h1 className="currentTemp">
           Current Temp: 
           {currentTempUnit}°
         </h1>
         <section>
-          <img src={this.props.data.current_observation.icon_url} />
+          <img src={this.props.weatherData.current_observation.icon_url} />
           <h6 className="currentConditions">
             Today's Conditions: 
-            {this.props.data.current_observation.weather}
+            {this.props.weatherData.current_observation.weather}
           </h6>
         </section>
         <h3 className="currentDate">
           Today's Date: 
-          {this.props.data.current_observation.local_time_rfc822.substr(0, 14)}
+          {this.props.weatherData.current_observation.local_time_rfc822.substr(0, 14)}
         </h3>
         <h2 className="currentHigh">
           Daily High: 
@@ -66,10 +67,10 @@ class CurrentWeather extends Component {
         </h2>
         <p className="currentDescription">
           What to expect: 
-          {this.props.data.forecast.txt_forecast.forecastday[0].fcttext}
+          {this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext}
         </p>
       </div>
-      );
+      );}
   }
 }
 
