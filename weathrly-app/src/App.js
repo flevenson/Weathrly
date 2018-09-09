@@ -23,14 +23,15 @@ class App extends Component {
     super()
 
     this.state = {
-      weatherData: [],
+      weatherData: {},
       data,
       currentDisplay: '',
       tenSevenToggle: true,
       fahrCelsToggle: true
     }
     this.toggleForecastDisplay = this.toggleForecastDisplay.bind(this);
-    this.toggleFahrCels = this.toggleFahrCels.bind(this)
+    this.toggleFahrCels = this.toggleFahrCels.bind(this);
+    // this.componentDidMount = this.componentDidMount.bind(this)
     }
   // handleClick = (data) => {
   //   // const newClickProperty = !this.state.clicked
@@ -42,26 +43,27 @@ class App extends Component {
   componentDidMount() {
     fetch(apiData)
   .then(data => data.json())
-  .then(data => console.log(data))
   .then(data => {
-    this.setState(state=> ({
+    console.log(data)
+    this.setState(state => ({
       weatherData: data
     }))
   })
   .catch(err => console.log('ERROR'))
-
+  console.log(this.state)
   }
 
   toggleForecastDisplay() {
-    this.setState(state => ({
-      tenSevenToggle: !state.tenSevenToggle
-    })); 
+    console.log(this.state)
+    this.setState({
+      tenSevenToggle: !this.state.tenSevenToggle
+    }); 
   }
 
   toggleFahrCels() {
-    this.setState(state => ({
-      fahrCelsToggle: !state.fahrCelsToggle
-    }));
+    this.setState({
+      fahrCelsToggle: !this.state.fahrCelsToggle
+    });
   }
 
   render() {
