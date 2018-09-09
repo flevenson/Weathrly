@@ -1,3 +1,3 @@
-let apiKey = ''
+let apiKey = '068a2ceade60cbb9'
 
 export default apiKey
