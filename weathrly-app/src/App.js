@@ -44,13 +44,13 @@ class App extends Component {
     fetch(apiData)
   .then(data => data.json())
   .then(data => {
-    console.log('heres the data', data)
+    // console.log('heres the data', data)
     this.setState(state => ({
       weatherData: data
     }))
   })
   .catch(err => console.log('ERROR'))
-  console.log('App render end', this.state)
+  // console.log('App render end', this.state)
   }
 
   toggleForecastDisplay() {
@@ -83,9 +83,9 @@ class App extends Component {
           <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
           <Search />
         </div>
-        {console.log('renderStart')}
+        {/*{console.log('renderStart')}*/}
         <CurrentWeather data={this.state.data} degreeUnit={this.state.fahrCelsToggle} weatherData={this.state.weatherData} />
-        {console.log('renderEnd')}
+        {/*{console.log('renderEnd')}*/}
         <div className='forecast-holder'>
           <div className='display-info' >
             <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
