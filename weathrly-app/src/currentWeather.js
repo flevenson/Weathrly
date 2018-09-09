@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './currentWeather.css';
-import data from './mockData.js'
+// import data from './mockData.js'
 
 
 
@@ -25,6 +25,7 @@ class CurrentWeather extends Component {
     let degreeLowUnit
 
     if(this.props.degreeUnit){
+      // console.log(this.props.data)
       currentTempUnit = this.props.data.current_observation.temp_f;
       degreeHighUnit = this.props.data.forecast.simpleforecast.forecastday[0].high.fahrenheit;
       degreeLowUnit = this.props.data.forecast.simpleforecast.forecastday[0].low.fahrenheit;
