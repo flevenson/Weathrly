@@ -15,7 +15,7 @@ class Daily extends Component {
 	}
 
 	render() {
-		return (this.props.data.forecast.simpleforecast.forecastday.map((day) => {
+		return (this.props.weatherData.forecast.simpleforecast.forecastday.map((day) => {
 			return (
 				<div className="daily-container">
 					<TenDayCard day={day} degreeUnit={this.props.degreeUnit}/>

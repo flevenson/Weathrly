@@ -23,7 +23,7 @@ class App extends Component {
     super()
 
     this.state = {
-      weatherData: {},
+      weatherData: null,
       data,
       currentDisplay: '',
       tenSevenToggle: true,
@@ -44,13 +44,13 @@ class App extends Component {
     fetch(apiData)
   .then(data => data.json())
   .then(data => {
-    console.log(data)
+    console.log('heres the data', data)
     this.setState(state => ({
       weatherData: data
     }))
   })
   .catch(err => console.log('ERROR'))
-  console.log(this.state)
+  console.log('App render end', this.state)
   }
 
   toggleForecastDisplay() {
@@ -69,10 +69,10 @@ class App extends Component {
   render() {
     let display
 
-    if(this.state.tenSevenToggle){
-      display = <Hourly data={this.state.data} degreeUnit={this.state.fahrCelsToggle} />
-    } else {
-      display = <Daily data={this.state.data} degreeUnit={this.state.fahrCelsToggle} />
+    if(this.state.tenSevenToggle && this.state.weatherData) {
+      display = <Hourly data={this.state.data} degreeUnit={this.state.fahrCelsToggle} weatherData={this.state.weatherData} />
+    } else if (this.state.weatherData) {
+      display = <Daily data={this.state.data} degreeUnit={this.state.fahrCelsToggle} weatherData={this.state.weatherData} />
     }
 
     return (
@@ -83,7 +83,9 @@ class App extends Component {
           <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
           <Search />
         </div>
-        <CurrentWeather data={this.state.data} degreeUnit={this.state.fahrCelsToggle} />
+        {console.log('renderStart')}
+        <CurrentWeather data={this.state.data} degreeUnit={this.state.fahrCelsToggle} weatherData={this.state.weatherData} />
+        {console.log('renderEnd')}
         <div className='forecast-holder'>
           <div className='display-info' >
             <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
