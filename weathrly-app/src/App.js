@@ -13,7 +13,6 @@ import apiKey from './apiKey.js';
 
 // const mockData = data
 
-const apiData = `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/CO/Denver.json`
 
 
 // console.log(mockData.current_observation.display_location.full)
@@ -35,10 +34,13 @@ class App extends Component {
     }
 
   getLocation(location) {
-    console.log("This location, " + location + " is in the App.js" )
+    const apiData = `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/${location}.json`
+    console.log(location)
+    this.componentDidMount(apiData);
+    // console.log("This location, " + location + " is in the App.js" )
   }
 
-  componentDidMount() {
+  componentDidMount(apiData) {
     fetch(apiData)
   .then(data => data.json())
   .then(data => {
@@ -68,21 +70,33 @@ class App extends Component {
     let display
 
     if(this.state.tenSevenToggle && this.state.weatherData) {
-      display = <Hourly data={this.state.data} degreeUnit={this.state.fahrCelsToggle} weatherData={this.state.weatherData} />
-    } else if (this.state.weatherData) {
-      display = <Daily data={this.state.data} degreeUnit={this.state.fahrCelsToggle} weatherData={this.state.weatherData} />
+      display = 
+        <Hourly 
+          data={this.state.data} 
+          degreeUnit={this.state.fahrCelsToggle} 
+          weatherData={this.state.weatherData} />
+      } else if (this.state.weatherData) {
+        display = 
+          <Daily 
+            data={this.state.data} 
+            degreeUnit={this.state.fahrCelsToggle} 
+            weatherData={this.state.weatherData} />
     }
 
     return (
       <div className="App">
        {/*<button className="test-button" onClick={() => this.handleClick('currentWeather')}>current weather</button>*/}
         <div className='main-section'>
+          <h1 className="site-header">Weathrly</h1>
           <Banner />
           <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
-          <Search sendLocation={this.getLocation}/>
+          <Search sendLocation={(location) => this.getLocation(location)}/>
         </div>
         {/*{console.log('renderStart')}*/}
-        <CurrentWeather data={this.state.data} degreeUnit={this.state.fahrCelsToggle} weatherData={this.state.weatherData} />
+        <CurrentWeather 
+          data={this.state.data} 
+          degreeUnit={this.state.fahrCelsToggle} 
+          weatherData={this.state.weatherData} />
         {/*{console.log('renderEnd')}*/}
         <div className='forecast-holder'>
           <div className='display-info' >
