@@ -26,15 +26,23 @@ class App extends Component {
       data,
       currentDisplay: '',
       tenSevenToggle: true,
-      fahrCelsToggle: true
+      fahrCelsToggle: true,
     }
     this.toggleForecastDisplay = this.toggleForecastDisplay.bind(this);
     this.toggleFahrCels = this.toggleFahrCels.bind(this);
     // this.componentDidMount = this.componentDidMount.bind(this)
     }
 
+  formatInput(location){
+    let splitLocation = location.split(",")
+    let searchState = splitLocation[1].trim()
+    let searchCity = splitLocation[0].replace(/\s+/g, "_")
+    return (searchState + '/' + searchCity)
+  }
+
   getLocation(location) {
-    const apiData = `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/${location}.json`
+    let searchLocation = this.formatInput(location);
+    const apiData = `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/${searchLocation}.json`
     this.stringNSet(location);
     console.log(location)
     this.componentDidMount(apiData);
@@ -68,7 +76,7 @@ class App extends Component {
   }
 
   stringNSet(location) {
-    localStorage.setItem(location, JSON.stringify(location));
+    localStorage.setItem((location + ' weathrly'), JSON.stringify(location));
   }
 
   getNParse(storedLocation) {
