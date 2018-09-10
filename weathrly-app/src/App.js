@@ -35,6 +35,7 @@ class App extends Component {
 
   getLocation(location) {
     const apiData = `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/${location}.json`
+    this.stringNSet(location);
     console.log(location)
     this.componentDidMount(apiData);
     // console.log("This location, " + location + " is in the App.js" )
@@ -66,6 +67,14 @@ class App extends Component {
     });
   }
 
+  stringNSet(location) {
+    localStorage.setItem(location, JSON.stringify(location));
+  }
+
+  getNParse(storedLocation) {
+    return JSON.parse(localStorage.getItem(storedLocation));
+  }
+
   render() {
     let display
 
@@ -82,6 +91,7 @@ class App extends Component {
             degreeUnit={this.state.fahrCelsToggle} 
             weatherData={this.state.weatherData} />
     }
+
 
     return (
       <div className="App">
