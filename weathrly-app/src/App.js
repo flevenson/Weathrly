@@ -40,26 +40,29 @@ class App extends Component {
     return (searchState + '/' + searchCity)
   }
 
+
   getLocation(location) {
     let searchLocation = this.formatInput(location);
     const apiData = `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/${searchLocation}.json`
     this.stringNSet(location);
-    console.log(location)
     this.componentDidMount(apiData);
-    // console.log("This location, " + location + " is in the App.js" )
+  }
+
+  componentWillMount(){
+    if(this.getNParse('weathrly-hometown')){
+    this.getLocation(this.getNParse('weathrly-hometown'))}
   }
 
   componentDidMount(apiData) {
+    let onLoadContent;
     fetch(apiData)
   .then(data => data.json())
   .then(data => {
-    // console.log('heres the data', data)
     this.setState(state => ({
       weatherData: data
     }))
   })
   .catch(err => console.log('ERROR'))
-  // console.log('App render end', this.state)
   }
 
   toggleForecastDisplay() {
@@ -76,12 +79,13 @@ class App extends Component {
   }
 
   stringNSet(location) {
-    localStorage.setItem((location + ' weathrly'), JSON.stringify(location));
+    localStorage.setItem(('weathrly-hometown'), JSON.stringify(location));
   }
 
   getNParse(storedLocation) {
-    return JSON.parse(localStorage.getItem(storedLocation));
-  }
+    let hometown = JSON.parse(localStorage.getItem(storedLocation));
+    return hometown
+    }
 
   render() {
     let display
@@ -99,7 +103,6 @@ class App extends Component {
             degreeUnit={this.state.fahrCelsToggle} 
             weatherData={this.state.weatherData} />
     }
-
 
     return (
       <div className="App">
@@ -130,6 +133,8 @@ class App extends Component {
     );
   }
 }
+
+
 
 export default App;
 
