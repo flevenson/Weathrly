@@ -13,7 +13,6 @@ import apiKey from './apiKey.js';
 
 // const mockData = data
 
-const apiData = `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/CO/Denver.json`
 
 
 // console.log(mockData.current_observation.display_location.full)
@@ -33,24 +32,25 @@ class App extends Component {
     this.toggleFahrCels = this.toggleFahrCels.bind(this);
     // this.componentDidMount = this.componentDidMount.bind(this)
     }
-  // handleClick = (data) => {
-  //   // const newClickProperty = !this.state.clicked
-  //   this.setState ({
-  //     currentDisplay: data
-  //   })
-  // }
 
-  componentDidMount() {
+  getLocation(location) {
+    const apiData = `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/${location}.json`
+    console.log(location)
+    this.componentDidMount(apiData);
+    // console.log("This location, " + location + " is in the App.js" )
+  }
+
+  componentDidMount(apiData) {
     fetch(apiData)
   .then(data => data.json())
   .then(data => {
-    console.log('heres the data', data)
+    // console.log('heres the data', data)
     this.setState(state => ({
       weatherData: data
     }))
   })
   .catch(err => console.log('ERROR'))
-  console.log('App render end', this.state)
+  // console.log('App render end', this.state)
   }
 
   toggleForecastDisplay() {
@@ -70,22 +70,34 @@ class App extends Component {
     let display
 
     if(this.state.tenSevenToggle && this.state.weatherData) {
-      display = <Hourly data={this.state.data} degreeUnit={this.state.fahrCelsToggle} weatherData={this.state.weatherData} />
-    } else if (this.state.weatherData) {
-      display = <Daily data={this.state.data} degreeUnit={this.state.fahrCelsToggle} weatherData={this.state.weatherData} />
+      display = 
+        <Hourly 
+          data={this.state.data} 
+          degreeUnit={this.state.fahrCelsToggle} 
+          weatherData={this.state.weatherData} />
+      } else if (this.state.weatherData) {
+        display = 
+          <Daily 
+            data={this.state.data} 
+            degreeUnit={this.state.fahrCelsToggle} 
+            weatherData={this.state.weatherData} />
     }
 
     return (
       <div className="App">
        {/*<button className="test-button" onClick={() => this.handleClick('currentWeather')}>current weather</button>*/}
         <div className='main-section'>
+          <h1 className="site-header">Weathrly</h1>
           <Banner />
           <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
-          <Search />
+          <Search sendLocation={(location) => this.getLocation(location)}/>
         </div>
-        {console.log('renderStart')}
-        <CurrentWeather data={this.state.data} degreeUnit={this.state.fahrCelsToggle} weatherData={this.state.weatherData} />
-        {console.log('renderEnd')}
+        {/*{console.log('renderStart')}*/}
+        <CurrentWeather 
+          data={this.state.data} 
+          degreeUnit={this.state.fahrCelsToggle} 
+          weatherData={this.state.weatherData} />
+        {/*{console.log('renderEnd')}*/}
         <div className='forecast-holder'>
           <div className='display-info' >
             <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
