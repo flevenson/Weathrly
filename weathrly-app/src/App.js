@@ -33,12 +33,10 @@ class App extends Component {
     this.toggleFahrCels = this.toggleFahrCels.bind(this);
     // this.componentDidMount = this.componentDidMount.bind(this)
     }
-  // handleClick = (data) => {
-  //   // const newClickProperty = !this.state.clicked
-  //   this.setState ({
-  //     currentDisplay: data
-  //   })
-  // }
+
+  getLocation(location) {
+    console.log("This location, " + location + " is in the App.js" )
+  }
 
   componentDidMount() {
     fetch(apiData)
@@ -81,7 +79,7 @@ class App extends Component {
         <div className='main-section'>
           <Banner />
           <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
-          <Search />
+          <Search sendLocation={this.getLocation}/>
         </div>
         {/*{console.log('renderStart')}*/}
         <CurrentWeather data={this.state.data} degreeUnit={this.state.fahrCelsToggle} weatherData={this.state.weatherData} />
