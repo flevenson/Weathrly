@@ -50,7 +50,8 @@ class App extends Component {
 
   componentWillMount(){
     if(this.getNParse('weathrly-hometown')){
-    this.getLocation(this.getNParse('weathrly-hometown'))}
+    this.getLocation(this.getNParse('weathrly-hometown'))
+  }
   }
 
   componentDidMount(apiData) {
@@ -89,6 +90,7 @@ class App extends Component {
 
   render() {
     let display
+            console.log(this.state.weatherData)
 
     if(this.state.tenSevenToggle && this.state.weatherData) {
       display = 
@@ -106,19 +108,16 @@ class App extends Component {
 
     return (
       <div className="App">
-       {/*<button className="test-button" onClick={() => this.handleClick('currentWeather')}>current weather</button>*/}
         <div className='main-section'>
           <h1 className="site-header">Weathrly</h1>
           <Banner />
           <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
           <Search sendLocation={(location) => this.getLocation(location)}/>
         </div>
-        {/*{console.log('renderStart')}*/}
         <CurrentWeather 
           data={this.state.data} 
           degreeUnit={this.state.fahrCelsToggle} 
           weatherData={this.state.weatherData} />
-        {/*{console.log('renderEnd')}*/}
         <div className='forecast-holder'>
           <div className='display-info' >
             <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
