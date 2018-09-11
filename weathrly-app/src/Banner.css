@@ -1,7 +1,32 @@
-.banner-image {
+/*.banner-image {
 	background-image: url("./animated/weather.svg");
 	background-size: cover;
 	width: 18rem;
 	height: 18rem;
   margin: 0 auto;
+}*/
+
+.site-header {
+
+}
+
+
+.site-title {
+  color: white;
+  font-size: 3rem;
+  font-family: 'Bree Serif', serif;
+  /*font-family: 'Dekko', cursive;*/
+/*font-family: 'Sriracha', cursive;*/
+/*font-family: 'Itim', cursive;*/
+/*font-family: 'Berkshire Swash', cursive;*/
+/*font-family: 'Baloo', cursive;*/
+/*font-family: 'Voces', cursive;*/
+/*font-family: 'Cherry Swash', cursive;*/
+/*font-family: 'Salsa', cursive;*/
+/*font-family: 'Baloo Chettan', cursive;*/
+/*font-family: 'Baloo Tamma', cursive;*/
+/*font-family: 'Baloo Thambi', cursive;*/
+/*font-family: 'Wellfleet', cursive;*/
+/*font-family: 'Autour One', cursive;*/
+/*font-family: 'Oldenburg', cursive;*/
 }

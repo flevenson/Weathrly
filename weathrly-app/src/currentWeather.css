@@ -1,11 +1,18 @@
 .currentWeatherComponent {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 2fr 2fr;
-  height: 75%;
-  width: 94%;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 60%;
+  width: 70%;
   border-radius: 10px;
   margin: 2rem 2rem;
+  color: black;
+  margin: auto;
+  background-color: #c5ebf9;
+  border-radius: 10px;
 }
 
+.currentDescription {
+	grid-column: 1 / span 2;
+}
 
