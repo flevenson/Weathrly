@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './currentWeather.css';
 // import data from './mockData.js'
+import Icons from './icons.js'
 
 
 
@@ -47,7 +48,8 @@ class CurrentWeather extends Component {
           {currentTempUnit}°
         </h1>
         <section>
-          <img src={this.props.weatherData.current_observation.icon_url} />
+          <img src="Icons.clear" />
+          {console.log(Icons.clear)}
           <h6 className="currentConditions">
             Today's Conditions: 
             {this.props.weatherData.current_observation.weather}
