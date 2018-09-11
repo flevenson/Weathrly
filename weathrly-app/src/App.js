@@ -51,6 +51,7 @@ class App extends Component {
   componentWillMount(){
     if(this.getNParse('weathrly-hometown')){
     this.getLocation(this.getNParse('weathrly-hometown'))}
+    
   }
 
   componentDidMount(apiData) {

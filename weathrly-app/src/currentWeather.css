@@ -2,12 +2,10 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 2fr 2fr;
-  background-color: #9E9E9E;
   height: 75%;
   width: 94%;
   border-radius: 10px;
   margin: 2rem 2rem;
-  box-shadow: 12px 15px 16px #F5C14E;
 }
 
 
