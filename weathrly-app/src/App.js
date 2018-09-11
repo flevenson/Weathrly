@@ -9,6 +9,8 @@ import data from './mockData.js'
 import Hourly from './Hourly.js';
 import Daily from './Daily.js';
 import apiKey from './apiKey.js';
+import Icons from './icons.js';
+
 // import Card from './Card.js';
 
 // const mockData = data
@@ -109,9 +111,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className='main-section'>
-          <h1 className="site-header">Weathrly</h1>
           <Banner />
-          <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
           <Search sendLocation={(location) => this.getLocation(location)}/>
         </div>
         <CurrentWeather 
@@ -121,6 +121,7 @@ class App extends Component {
         <div className='forecast-holder'>
           <div className='display-info' >
             <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
+          <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
             <button onClick={this.toggleForecastDisplay}> {this.state.tenSevenToggle ? 'Show Ten Day Forecast' : 'Show Seven Hour Forecast'} </button>
           </div>
           <div className='card-holder'>

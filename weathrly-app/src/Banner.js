@@ -3,7 +3,8 @@ import './Banner.css';
 
 const Banner = () => {
 	return (
-		<div className='banner-image'>
+		<div className='site-header'>
+		  <h1 className="site-title">Weathrly</h1>
 		</div>
 	);
 }
