@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './TenDayCard.css';
-import data from './mockData.js'
+import data from './mockData.js';
+import Icons from './icons.js';
 
 class TenDayCard extends Component {
 	constructor(props) {
@@ -15,19 +16,19 @@ class TenDayCard extends Component {
 		let degreeLowUnit
 
 		if (this.props.degreeUnit) {
-			degreeHighUnit = this.props.day.high.fahrenheit;
-			degreeLowUnit = this.props.day.low.fahrenheit
+			degreeHighUnit = (this.props.day.high.fahrenheit + "°F");
+			degreeLowUnit = (this.props.day.low.fahrenheit + "°F");
 		} else {
-			degreeHighUnit = this.props.day.high.celsius;
-			degreeLowUnit = this.props.day.low.celsius;
+			degreeHighUnit = (this.props.day.high.celsius + "°C");
+			degreeLowUnit = (this.props.day.low.celsius + "°C");
 		}
 
 		return(
 			<div className="ten-day">
 				<p>{this.props.day.date.weekday_short}</p>
-				<img src={this.props.day.icon_url}/>
-				<p>{degreeHighUnit}°</p>
-				<p>{degreeLowUnit}°</p>
+				<img src={Icons[this.props.day.conditions]}/>
+				<p>{degreeHighUnit}</p>
+				<p>{degreeLowUnit}</p>
 			</div>
 			);
 	}
