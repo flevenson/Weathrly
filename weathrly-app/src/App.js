@@ -52,7 +52,7 @@ class App extends Component {
     if(this.getNParse('weathrly-hometown')){
     this.getLocation(this.getNParse('weathrly-hometown'))
   }
-  }
+
 
   componentDidMount(apiData) {
     let onLoadContent;
