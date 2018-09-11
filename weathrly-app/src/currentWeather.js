@@ -23,18 +23,21 @@ class CurrentWeather extends Component {
   
 
   render() {
-    let currentTempUnit
-    let degreeHighUnit
-    let degreeLowUnit
+    let currentTempUnit;
+    let degreeHighUnit;
+    let degreeLowUnit;
+    let currentDescriptionUnit;
 
     if(this.props.degreeUnit && this.props.weatherData){
-      currentTempUnit = this.props.weatherData.current_observation.temp_f;
-      degreeHighUnit = this.props.weatherData.forecast.simpleforecast.forecastday[0].high.fahrenheit;
-      degreeLowUnit = this.props.weatherData.forecast.simpleforecast.forecastday[0].low.fahrenheit;
+      currentTempUnit = (this.props.weatherData.current_observation.temp_f + "°F");
+      degreeHighUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].high.fahrenheit + "°F");
+      degreeLowUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].low.fahrenheit + "°F");
+      currentDescriptionUnit = this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext;
     } else if (this.props.weatherData) {
-      currentTempUnit = this.props.weatherData.current_observation.temp_c;
-      degreeHighUnit = this.props.weatherData.forecast.simpleforecast.forecastday[0].high.celsius;
-      degreeLowUnit = this.props.weatherData.forecast.simpleforecast.forecastday[0].low.celsius;
+      currentTempUnit = (this.props.weatherData.current_observation.temp_c + "°C");
+      degreeHighUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].high.celsius + "°C");
+      degreeLowUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].low.celsius + "°C");
+      currentDescriptionUnit = this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext_metric;
     }
     if(!this.props.weatherData){ 
       return(null)} else{
@@ -46,7 +49,7 @@ class CurrentWeather extends Component {
         </h2>
         <h1 className="currentTemp">
           Current Temp: 
-          {currentTempUnit}°
+          {currentTempUnit}
         </h1>
         <section>
           <img src={Icons[this.props.weatherData.current_observation.weather]} />
@@ -63,15 +66,15 @@ class CurrentWeather extends Component {
         </h3>
         <h2 className="currentHigh">
           Daily High: 
-          {degreeHighUnit}°
+          {degreeHighUnit}
         </h2>
         <h2 className="currentLow">
           Daily Low: 
-          {degreeLowUnit}°
+          {degreeLowUnit}
         </h2>
         <p className="currentDescription">
           What to expect: 
-          {this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext}
+          {currentDescriptionUnit}
         </p>
       </div>
       );}
