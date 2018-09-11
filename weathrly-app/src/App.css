@@ -33,7 +33,7 @@
 .forecast-holder {
   display: flex;
   flex-direction: column;
-  background-color: #c5ebf9;
+  background-color: #eaeaea;
   justify-content: space-around;
   align-items: center;
   border-radius: 10px;
