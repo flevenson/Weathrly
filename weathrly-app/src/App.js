@@ -9,6 +9,8 @@ import data from './mockData.js'
 import Hourly from './Hourly.js';
 import Daily from './Daily.js';
 import apiKey from './apiKey.js';
+import Icons from './icons.js';
+
 // import Card from './Card.js';
 
 // const mockData = data

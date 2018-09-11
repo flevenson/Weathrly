@@ -5,6 +5,7 @@ import Icons from './icons.js'
 
 
 
+
 class CurrentWeather extends Component {
   constructor(props) {
     super(props);
@@ -48,7 +49,8 @@ class CurrentWeather extends Component {
           {currentTempUnit}°
         </h1>
         <section>
-          <img src="Icons.clear" />
+          <img src={Icons[this.props.weatherData.current_observation.weather]} />
+          {console.log(Icons[this.props.weatherData.current_observation.weather])}
           {console.log(Icons.clear)}
           <h6 className="currentConditions">
             Today's Conditions: 
