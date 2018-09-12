@@ -59,7 +59,9 @@
 .site-header {
   grid-column: 1 / span 2;
   width: 100%;
-  background-color: #303030;
+  /*background-color: #303030;*/
+  background-color: #57a0ee;
+  /*background-color: #4e91d8;*/
   height: 100%;
   display: flex;
   justify-content: flex-start;    
