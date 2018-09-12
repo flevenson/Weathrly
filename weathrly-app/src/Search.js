@@ -2,46 +2,46 @@ import React, { Component } from 'react';
 import './Search.css';
 
 class Search extends Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			userInput: ""
-		}
-		this.registerLocation = this.registerLocation.bind(this);
-		this.submitLocation = this.submitLocation.bind(this);
-	}
+    this.state = {
+      userInput: ""
+    };
+    this.registerLocation = this.registerLocation.bind(this);
+    this.submitLocation = this.submitLocation.bind(this);
+  }
 
-	registerLocation(e) {
-		console.log(this.state)
-		this.setState({
-			userInput: e.target.value
-		})
+  registerLocation(e) {
+    console.log(this.state);
+    this.setState({
+      userInput: e.target.value
+    });
 
-	}
+  }
 
-	submitLocation(e) {
-		e.preventDefault();
-		this.props.sendLocation(this.state.userInput)
-	}
+  submitLocation(e) {
+    e.preventDefault();
+    this.props.sendLocation(this.state.userInput);
+  }
 
 
-	render() {
-		return (
-			<form className="search">
-				<input 
+  render() {
+    return (
+      <form className="search">
+        <input 
 				  type="search" 
 				  placeholder="Enter (City, State) or zip code" 
 				  className="search-input" 
 				  onChange={this.registerLocation}>
-				</input>
+        </input>
 			  <button 
 			    className="submit-btn" 
 			    onClick={this.submitLocation}>Search
 			    </button>
-			</form>
-			);
-	}
+      </form>
+    );
+  }
 }
 
 export default Search;
