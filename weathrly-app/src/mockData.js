@@ -1,5 +1,3 @@
-import React from 'react'
-
 const data = {
   response: {
     version: '0.1',

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Banner from './Banner.js';
 import Welcome from './Welcome.js';
@@ -9,7 +9,7 @@ import data from './mockData.js'
 import Hourly from './Hourly.js';
 import Daily from './Daily.js';
 import apiKey from './apiKey.js';
-import Icons from './icons.js';
+// import Icons from './icons.js';
 
 // import Card from './Card.js';
 
@@ -25,6 +25,7 @@ class App extends Component {
 
     this.state = {
       weatherData: null,
+      zipLocation: null,
       data,
       currentDisplay: '',
       tenSevenToggle: true,
@@ -32,14 +33,38 @@ class App extends Component {
     }
     this.toggleForecastDisplay = this.toggleForecastDisplay.bind(this);
     this.toggleFahrCels = this.toggleFahrCels.bind(this);
+    // this.getZipCode = this.getZipCode.bind(this);
+    this.formatInput = this.formatInput.bind(this);
     // this.componentDidMount = this.componentDidMount.bind(this)
     }
 
   formatInput(location){
+    if (location.includes(",")) {
     let splitLocation = location.split(",")
     let searchState = splitLocation[1].trim()
     let searchCity = splitLocation[0].replace(/\s+/g, "_")
     return (searchState + '/' + searchCity)
+  }
+    else if (location.length === 5) {
+      this.getZipCode(location);
+      let zipCity = this.state.zipLocation.location.city;
+      let zipState = this.state.zipLocation.location.state;
+      return (zipState + '/' + zipCity)
+    } else {
+      console.log("formatInput not working")
+  }
+  }
+
+  getZipCode(zipCode) {
+    const zipData = `http://api.wunderground.com/api/${apiKey}/geolookup/q/${zipCode}.json`;
+      fetch(zipData)
+    .then(data => data.json())
+    .then(data => {
+      this.setState( state => ({
+        zipLocation: data
+      }))
+    })
+    .catch(err => console.log('ZIP-ERROR'));
   }
 
 
@@ -50,14 +75,14 @@ class App extends Component {
     this.componentDidMount(apiData);
   }
 
-  componentWillMount(){
+  componentWillMount() {
     if(this.getNParse('weathrly-hometown')){
     this.getLocation(this.getNParse('weathrly-hometown'))
     }
   }
 
   componentDidMount(apiData) {
-    let onLoadContent;
+    // let onLoadContent;
     fetch(apiData)
   .then(data => data.json())
   .then(data => {
@@ -65,7 +90,7 @@ class App extends Component {
       weatherData: data
     }))
   })
-  .catch(err => console.log('ERROR'))
+  .catch(err => console.log('ERROR'));
   }
 
   toggleForecastDisplay() {
@@ -94,7 +119,7 @@ class App extends Component {
     let display
             console.log(this.state.weatherData)
 
-    if(this.state.tenSevenToggle && this.state.weatherData) {
+    if(this.state.tenSevenToggle && (this.state.weatherData || this.state.zipLocation)) {
       display = 
         <Hourly 
           data={this.state.data} 

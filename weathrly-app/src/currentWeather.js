@@ -28,18 +28,18 @@ class CurrentWeather extends Component {
     let degreeLowUnit;
     let currentDescriptionUnit;
 
-    if(this.props.degreeUnit && this.props.weatherData){
+    if(this.props.degreeUnit && (this.props.weatherData || this.state.zipLocation)) {
       currentTempUnit = (this.props.weatherData.current_observation.temp_f + "°F");
       degreeHighUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].high.fahrenheit + "°F");
       degreeLowUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].low.fahrenheit + "°F");
       currentDescriptionUnit = this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext;
-    } else if (this.props.weatherData) {
+    } else if (this.props.weatherData || this.state.zipLocation) {
       currentTempUnit = (this.props.weatherData.current_observation.temp_c + "°C");
       degreeHighUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].high.celsius + "°C");
       degreeLowUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].low.celsius + "°C");
       currentDescriptionUnit = this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext_metric;
     }
-    if(!this.props.weatherData){ 
+    if(!this.props.weatherData) { 
       return(null)} else{
     return(
       <div className="currentWeatherComponent">
@@ -52,9 +52,7 @@ class CurrentWeather extends Component {
           {currentTempUnit}
         </h1>
         <section>
-          <img src={Icons[this.props.weatherData.current_observation.weather]} />
-          {console.log(Icons[this.props.weatherData.current_observation.weather])}
-          {console.log(Icons.clear)}
+          <img src={Icons[this.props.weatherData.current_observation.weather]} alt="Icon representing current weather conditions"/>
           <h6 className="currentConditions">
             Today's Conditions: 
             {this.props.weatherData.current_observation.weather}

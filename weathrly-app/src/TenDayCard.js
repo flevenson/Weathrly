@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './TenDayCard.css';
-import data from './mockData.js';
+// import data from './mockData.js';
 import Icons from './icons.js';
 
 class TenDayCard extends Component {
@@ -26,7 +26,7 @@ class TenDayCard extends Component {
 		return(
 			<div className="ten-day">
 				<p>{this.props.day.date.weekday_short}</p>
-				<img src={Icons[this.props.day.conditions]}/>
+				<img src={Icons[this.props.day.conditions]} alt="Icon representing current weather conditions on each day"/>
 				<p>{degreeHighUnit}</p>
 				<p>{degreeLowUnit}</p>
 			</div>

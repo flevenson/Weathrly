@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './Daily.css';
 import TenDayCard from './TenDayCard';
-import data from './mockData.js';
+// import data from './mockData.js';
 
 class Daily extends Component {
 	constructor(props) {
