@@ -43,37 +43,46 @@ class CurrentWeather extends Component {
       return(null)} else{
     return(
       <div className="currentWeatherComponent">
-        <h2 className="currentCity">
-          Your Location: 
-          {this.props.weatherData.current_observation.display_location.full}
-        </h2>
-        <h1 className="currentTemp">
-          Current Temp: 
-          {currentTempUnit}
-        </h1>
-        <section>
-          <img src={Icons[this.props.weatherData.current_observation.weather]} alt="Icon representing current weather conditions"/>
-          <h6 className="currentConditions">
-            Today's Conditions: 
+        <div className="grid-div currentCity">
+          <h2>
+            {this.props.weatherData.current_observation.display_location.full}
+          </h2>
+        </div>
+        <div className="grid-div currentTemp">        
+          <h1>
+            {currentTempUnit}
+          </h1>
+        </div>
+        <section className="icon-conditions-div">
+          <img
+            src={Icons[this.props.weatherData.current_observation.weather]} 
+            alt="Icon representing current weather conditions"
+            className="current-weather-icon"
+            />
+          {/*<h6 className="currentConditions">
             {this.props.weatherData.current_observation.weather}
-          </h6>
+          </h6>*/}
         </section>
-        <h3 className="currentDate">
-          Today's Date: 
-          {this.props.weatherData.current_observation.local_time_rfc822.substr(0, 14)}
-        </h3>
-        <h2 className="currentHigh">
-          Daily High: 
-          {degreeHighUnit}
-        </h2>
-        <h2 className="currentLow">
-          Daily Low: 
-          {degreeLowUnit}
-        </h2>
-        <p className="currentDescription">
-          What to expect: 
-          {currentDescriptionUnit}
-        </p>
+        <div className="grid-div currentDate">
+          <h3>
+            {this.props.weatherData.current_observation.local_time_rfc822.substr(0, 14)}
+          </h3>
+        </div>
+        <div className="grid-div currentHighLow-div">
+          <h2 className="currentHigh">
+            H: 
+            {degreeHighUnit}
+          </h2>
+          <h2 className="currentLow">
+            L: 
+            {degreeLowUnit}
+          </h2>
+        </div>
+        <div className="grid-div currentDescription">        
+          <p>
+            {currentDescriptionUnit}
+          </p>
+        </div>
       </div>
       );}
   }

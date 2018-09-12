@@ -1,8 +1,13 @@
-/*.forecast-container {
-	background-color: #FFF;
-	height: 35%;
-	margin: 0 auto;
-	width: 10%;
-	grid-column: 1/span 2;  
+.hourly-container {
+  background-color: #eaeaea;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60%;
+  margin: 0 auto;
+  width: 80px;
+  grid-column: 1/span 2;
   grid-row: 2/span 1;
-}*/
+  border-radius: 10px;
+  box-shadow: -4px -2px 1px 0px #00000061;
+}
