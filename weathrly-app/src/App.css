@@ -8,7 +8,8 @@
   'forecast forecast forecast';*/
   text-align: center;
   /*font-family: 'Open Sans', sans-serif;*/
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  color: #303030;
 }
 
 .main-section {
@@ -19,6 +20,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
 }
 
 .welcome {
