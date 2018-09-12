@@ -5,26 +5,26 @@ import TenDayCard from './TenDayCard';
 // import data from './mockData.js';
 
 class Daily extends Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			day: this.day,
-			temperature: this.temperature
-		}
-	}
+    this.state = {
+      day: this.day,
+      temperature: this.temperature
+    };
+  }
 
-	render() {
-		return (this.props.weatherData.forecast.simpleforecast.forecastday.map((day, i) => {
-			return (
-				<div key={i} className="daily-container">
-					<TenDayCard day={day} degreeUnit={this.props.degreeUnit}/>
-				</div>
-			)
-		})
+  render() {
+    return (this.props.weatherData.forecast.simpleforecast.forecastday.map((day, i) => {
+      return (
+        <div key={i} className="daily-container">
+          <TenDayCard day={day} degreeUnit={this.props.degreeUnit}/>
+        </div>
+      );
+    })
 
-		)
-	}
+    );
+  }
 
 
 
