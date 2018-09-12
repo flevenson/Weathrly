@@ -33,21 +33,19 @@
 .forecast-holder {
   display: flex;
   flex-direction: column;
-  background-color: #eaeaea;
   justify-content: space-around;
   align-items: center;
   border-radius: 10px;
   margin: 0 auto;
-  width: 90%;
-  height: 70%;
+  width: 98%;
+  height: 100%;
   grid-column: 1 / span 2;
 }
 
 .card-holder {
-  display:flex;
+  display: flex;
   width: 100%;
-  justify-content: space-around;
-}
+  justify-content: space-around;}
 
 .display-info {
   height: 25%;
@@ -62,7 +60,7 @@
   background-color: #303030;
   height: 100%;
   display: flex;
-  justify-content: center;    
+  justify-content: flex-start;    
   align-items: center;
   margin: 0 0 1rem 0;
 }
