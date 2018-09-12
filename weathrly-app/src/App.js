@@ -46,27 +46,11 @@ class App extends Component {
     return (searchState + '/' + searchCity)
   }
     else if (location.length === 5) {
-      this.getZipCode(location);
-      let zipCity = this.state.zipLocation.location.city;
-      let zipState = this.state.zipLocation.location.state;
-      return (zipState + '/' + zipCity)
+      return location;
     } else {
       console.log("formatInput not working")
   }
   }
-
-  getZipCode(zipCode) {
-    const zipData = `http://api.wunderground.com/api/${apiKey}/geolookup/q/${zipCode}.json`;
-      fetch(zipData)
-    .then(data => data.json())
-    .then(data => {
-      this.setState( state => ({
-        zipLocation: data
-      }))
-    })
-    .catch(err => console.log('ZIP-ERROR'));
-  }
-
 
   getLocation(location) {
     let searchLocation = this.formatInput(location);
