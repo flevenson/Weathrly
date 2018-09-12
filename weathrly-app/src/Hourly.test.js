@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import App from './App.js'
-import Daily from './Daily.js';
+import Hourly from './Hourly.js';
 import mockData from './mockData.js';
 
-describe('Daily', () => {
+describe('Hourly', () => {
 
   let wrapper;
   let mountedWrapper;
@@ -12,8 +12,8 @@ describe('Daily', () => {
 
   beforeEach(() => {
     fahrCelsToggle = true;
-    wrapper = shallow(<Daily data={mockData} degreeUnit={true} weatherData={mockData} />);
-    mountedWrapper = mount(<Daily data={mockData} degreeUnit={fahrCelsToggle} weatherData={mockData} />);
+    wrapper = shallow(<Hourly data={mockData} degreeUnit={true} weatherData={mockData} />);
+    mountedWrapper = mount(<Hourly data={mockData} degreeUnit={fahrCelsToggle} weatherData={mockData} />);
   });
 
   it('should exist', () => {
@@ -21,7 +21,7 @@ describe('Daily', () => {
   });
 
   it('should render completely', () => {
-    expect(mountedWrapper.find('TenDayCard').length).toEqual(10)
+    expect(mountedWrapper.find('SevenHourCard').length).toEqual(7)
   });
 
   it('should accept properties', () => {

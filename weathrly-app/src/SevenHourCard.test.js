@@ -1,19 +1,22 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import App from './App.js'
-import Daily from './Daily.js';
+import SevenHourCard from './SevenHourCard.js';
 import mockData from './mockData.js';
+import Hourly from './Hourly.js';
 
-describe('Daily', () => {
+describe('SevenHourCard', () => {
 
   let wrapper;
   let mountedWrapper;
   let fahrCelsToggle;
+  let hour = mockData.hourly_forecast[0];
+
 
   beforeEach(() => {
     fahrCelsToggle = true;
-    wrapper = shallow(<Daily data={mockData} degreeUnit={true} weatherData={mockData} />);
-    mountedWrapper = mount(<Daily data={mockData} degreeUnit={fahrCelsToggle} weatherData={mockData} />);
+    wrapper = shallow(<SevenHourCard key={hour} hour={hour} degreeUnit={fahrCelsToggle}/> );
+    mountedWrapper = mount(<SevenHourCard key={hour} hour={hour} degreeUnit={fahrCelsToggle}/> );
   });
 
   it('should exist', () => {
@@ -21,7 +24,8 @@ describe('Daily', () => {
   });
 
   it('should render completely', () => {
-    expect(mountedWrapper.find('TenDayCard').length).toEqual(10)
+    expect(mountedWrapper.find('p').length).toEqual(2);
+    expect(mountedWrapper.find('img').length).toEqual(1);
   });
 
   it('should accept properties', () => {
