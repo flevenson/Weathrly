@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from './App.js'
+import App from './App.js';
 import Daily from './Daily.js';
 import mockData from './mockData.js';
 
@@ -21,7 +21,7 @@ describe('Daily', () => {
   });
 
   it('should render completely', () => {
-    expect(mountedWrapper.find('TenDayCard').length).toEqual(10)
+    expect(mountedWrapper.find('TenDayCard').length).toEqual(10);
   });
 
   it('should accept properties', () => {

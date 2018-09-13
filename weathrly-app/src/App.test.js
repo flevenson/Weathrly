@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import App from './App.js'
+import App from './App.js';
 import mockData from './mockData.js';
 
 describe('App', () => {
@@ -19,12 +19,12 @@ describe('App', () => {
     expect(wrapper).toBeDefined();
   });
 
-	it('renders without crashing', () => {
+  it('renders without crashing', () => {
   	const div = document.createElement('div');
 
   	ReactDOM.render(<App />, div);
   	ReactDOM.unmountComponentAtNode(div);
-	});
+  });
 
   it('should render completely', () => {
     expect(mountedWrapper.find('.main-section').length).toEqual(1);
@@ -44,6 +44,7 @@ describe('App', () => {
 
   it('should accept a function called toggleForecastDisplay()', () => {
   	const toggleForecastDisplay = jest.fn();
+
   	toggleForecastDisplay();
   	expect(toggleForecastDisplay).toHaveBeenCalled();
   });
@@ -51,17 +52,18 @@ describe('App', () => {
   it('should be able to toggle forecast display', () => {
   	expect(mountedWrapper.state('tenSevenToggle')).toEqual(true);
   	mountedWrapper.instance().toggleForecastDisplay();
-		expect(mountedWrapper.state('tenSevenToggle')).toEqual(false);
-  })
+    expect(mountedWrapper.state('tenSevenToggle')).toEqual(false);
+  });
 
   it('should toggle Fahrenheit and Celsius', () => {
    	expect(mountedWrapper.state('fahrCelsToggle')).toEqual(true);
   	mountedWrapper.instance().toggleFahrCels();
-		expect(mountedWrapper.state('fahrCelsToggle')).toEqual(false); 	
+    expect(mountedWrapper.state('fahrCelsToggle')).toEqual(false); 	
   });
 
   it('should be able to format location and take in a zip code', () => {
   	let testFormat = mountedWrapper.instance().formatInput('Denver, CO');
+
   	expect(testFormat).toEqual('CO/Denver');
   	testFormat = mountedWrapper.instance().formatInput('80202');
    	expect(testFormat).toEqual('80202'); 	

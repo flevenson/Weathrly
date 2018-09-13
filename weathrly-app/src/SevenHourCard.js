@@ -24,7 +24,9 @@ class SevenHourCard extends Component {
     return (
       <div className="seven-hour">
         <p>{this.props.hour.FCTTIME.civil}</p>
-        <img src={Icons[this.props.hour.condition]} alt="Icon representing current weather conditions at each hour"/>
+        <img 
+          src={Icons[this.props.hour.condition]} 
+          alt="Icon representing current weather conditions at each hour"/>
         <p>{currentTempUnit}</p>
       </div>
     );

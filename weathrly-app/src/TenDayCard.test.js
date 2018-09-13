@@ -1,9 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from './App.js'
 import TenDayCard from './TenDayCard.js';
 import mockData from './mockData.js';
-import Daily from './Daily.js';
 
 describe('TenDayCard', () => {
 
@@ -15,8 +13,12 @@ describe('TenDayCard', () => {
 
   beforeEach(() => {
     fahrCelsToggle = true;
-    wrapper = shallow(<TenDayCard key={day} day={day} degreeUnit={fahrCelsToggle}/> );
-    mountedWrapper = mount(<TenDayCard key={day} day={day} degreeUnit={fahrCelsToggle}/> );
+    wrapper = shallow(
+      <TenDayCard key={day} day={day} degreeUnit={fahrCelsToggle}
+      /> );
+    mountedWrapper = mount(
+      <TenDayCard key={day} day={day} degreeUnit={fahrCelsToggle}
+      /> );
   });
 
   it('should exist', () => {
