@@ -1,9 +1,9 @@
 .welcome {
-	height: 100vh;
-  font-family: 'Berkshire Swash', cursive;
-	width: 100vw;
-	background-color: #57A0EE;
+  background-color: #57A0EE;
   color: white;
+  font-family: 'Berkshire Swash', cursive;
+  height: 100vh;
+  width: 100vw;
 	opacity: 0.8;
 }
 
