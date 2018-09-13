@@ -23,7 +23,7 @@ describe('CurrentWeather', () => {
 
   it('should render completely', () => {
     expect(mountedWrapper.find('.icon-conditions-div').length).toEqual(1);
-    expect(mountedWrapper.find('.grid-div').length).toEqual(5);
+    expect(mountedWrapper.find('.grid-div').length).toEqual(4);
   });
 
   it('should accept properties', () => {
