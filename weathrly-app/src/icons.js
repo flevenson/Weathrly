@@ -66,6 +66,7 @@ const Icons = {
   "Partial Fog": require("./animated/Partly_Cloudy.svg"),
   Overcast: require("./animated/Overcast.svg"),
   Clear: require("./animated/Clear.svg"),
+  "": require("./animated/Clear.svg"),
   "Partly Cloudy": require("./animated/Partly_Cloudy.svg"),
   "Mostly Cloudy": require("./animated/cloudy-day-3.svg"),
   "Scattered Clouds": require("./animated/Mostly_Cloudy.svg"),

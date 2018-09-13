@@ -80,6 +80,7 @@ class App extends Component {
   }
 
   toggleFahrCels() {
+    console.log(this.state.weatherData)
     this.setState({
       fahrCelsToggle: !this.state.fahrCelsToggle
     });
