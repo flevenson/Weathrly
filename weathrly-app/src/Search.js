@@ -31,7 +31,7 @@ class Search extends Component {
       <form className="search">
         <input 
 				  type="search" 
-				  placeholder="Enter (City, State) or zip code" 
+				  placeholder={this.props.placeholderText} 
 				  className="search-input" 
 				  onChange={this.registerLocation}>
         </input>
