@@ -1,9 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from './App.js'
 import SevenHourCard from './SevenHourCard.js';
 import mockData from './mockData.js';
-import Hourly from './Hourly.js';
 
 describe('SevenHourCard', () => {
 
@@ -15,8 +13,12 @@ describe('SevenHourCard', () => {
 
   beforeEach(() => {
     fahrCelsToggle = true;
-    wrapper = shallow(<SevenHourCard key={hour} hour={hour} degreeUnit={fahrCelsToggle}/> );
-    mountedWrapper = mount(<SevenHourCard key={hour} hour={hour} degreeUnit={fahrCelsToggle}/> );
+    wrapper = shallow(
+      <SevenHourCard key={hour} hour={hour} degreeUnit={fahrCelsToggle}
+      /> );
+    mountedWrapper = mount(
+      <SevenHourCard key={hour} hour={hour} degreeUnit={fahrCelsToggle}
+      /> );
   });
 
   it('should exist', () => {

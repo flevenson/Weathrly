@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from './App.js'
+import App from './App.js';
 import Hourly from './Hourly.js';
 import mockData from './mockData.js';
 
@@ -21,7 +21,7 @@ describe('Hourly', () => {
   });
 
   it('should render completely', () => {
-    expect(mountedWrapper.find('SevenHourCard').length).toEqual(7)
+    expect(mountedWrapper.find('SevenHourCard').length).toEqual(7);
   });
 
   it('should accept properties', () => {

@@ -68,12 +68,12 @@ class App extends Component {
         });
       })
       .catch(err => {
-        if(!data){
+        if (!data) {
           this.setState({
             placeholderText: 'Please Format your text Properly'
           });
-        };
-      })
+        }
+      });
   }
 
   toggleForecastDisplay() {
@@ -114,40 +114,40 @@ class App extends Component {
             degreeUnit={this.state.fahrCelsToggle} 
             weatherData={this.state.weatherData} />;
     }
-    if(!this.getNParse('weathrlyHometown')) {
+    if (!this.getNParse('weathrlyHometown')) {
       return (
         <div className="welcome-div">
           <Welcome sendLocation={(location) => this.getLocation(location)} />
           <Search placeholderText={this.state.placeholderText} sendLocation={(location) => this.getLocation(location)} />      
         </div>
 
-        )
+      );
     } else {
-        return (
-          <div className="App">
-            <div className='main-section'>
-              <Banner />
-              <Search placeholderText={this.state.placeholderText} sendLocation={(location) => this.getLocation(location)}/>
-            </div>
-            <CurrentWeather 
-              data={this.state.data} 
-              degreeUnit={this.state.fahrCelsToggle} 
-              weatherData={this.state.weatherData} />
-            <div className='forecast-holder'>
-              <div className='display-info' >
-                <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
-                <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
-                <button onClick={this.toggleForecastDisplay}> {this.state.tenSevenToggle ? 'Show Ten Day Forecast' : 'Show Seven Hour Forecast'} </button>
-              </div>
-              <div className='card-holder'>
-                {display} 
-              </div>
-            </div>
-
+      return (
+        <div className="App">
+          <div className='main-section'>
+            <Banner />
+            <Search placeholderText={this.state.placeholderText} sendLocation={(location) => this.getLocation(location)}/>
           </div>
-        );
-      }
+          <CurrentWeather 
+            data={this.state.data} 
+            degreeUnit={this.state.fahrCelsToggle} 
+            weatherData={this.state.weatherData} />
+          <div className='forecast-holder'>
+            <div className='display-info' >
+              <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
+              <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
+              <button onClick={this.toggleForecastDisplay}> {this.state.tenSevenToggle ? 'Show Ten Day Forecast' : 'Show Seven Hour Forecast'} </button>
+            </div>
+            <div className='card-holder'>
+              {display} 
+            </div>
+          </div>
+
+        </div>
+      );
     }
+  }
 }
 
 
