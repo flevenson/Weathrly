@@ -19,4 +19,4 @@ D
 D
 
 ### Workflow
-![weatherly_workflow](Weathrly/weathrly-app/public/readme-images/weathrly_workflow.png)
+![weatherly_workflow](https://github.com/flevenson/Weathrly/blob/master/weathrly-app/public/readme-images/weathrly_workflow.png)
