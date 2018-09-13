@@ -1,5 +1,9 @@
 .search {
-  z-index: 20;
+  display: flex;
+  margin: 2rem 3rem 0 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 input {
@@ -7,6 +11,18 @@ input {
   width: 25rem;
   font-size: 1.5rem;
   background-color: #fffffe;
-  border: 1px solid grey;
+  border: none;
   border-radius: 10px;
+  margin: 0 0 0.5rem 0;
+  font-family: 'Nunito';
+  padding: 0 0 0 0.5rem;
+}
+
+.submit-btn {
+  border: 1px solid #57A0EE;
+  width: 30%;
+  border-radius: 10px;
+  height: 1.5rem;
+  font-size: 1rem;
+  font-family: 'Nunito';
 }
