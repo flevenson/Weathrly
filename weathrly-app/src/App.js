@@ -4,7 +4,7 @@ import './App.css';
 import Banner from './Banner.js';
 import Welcome from './Welcome.js';
 import Search from './Search.js';
-import CurrentWeather from './currentWeather.js';
+import CurrentWeather from './CurrentWeather.js';
 import data from './mockData.js';
 import Hourly from './Hourly.js';
 import Daily from './Daily.js';
