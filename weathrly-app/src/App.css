@@ -31,6 +31,18 @@
   grid-row: 1/span 2;
 }
 
+.welcome-div {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-div .search {
+  position: absolute;
+  bottom: 200px;
+}
+
 .forecast-holder {
   display: flex;
   flex-direction: column;

@@ -22,6 +22,7 @@ class App extends Component {
       currentDisplay: '',
       tenSevenToggle: true,
       fahrCelsToggle: true,
+      placeholderText: 'Enter (City, State) or zip code'
     };
     this.toggleForecastDisplay = this.toggleForecastDisplay.bind(this);
     this.toggleFahrCels = this.toggleFahrCels.bind(this);
@@ -62,11 +63,17 @@ class App extends Component {
     fetch(apiData)
       .then(data => data.json())
       .then(data => {
-        this.setState(state => ({
+        this.setState({
           weatherData: data
-        }));
+        });
       })
-      .catch(err => console.log('ERROR'));
+      .catch(err => {
+        if(!data){
+          this.setState({
+            placeholderText: 'Please Format your text Properly'
+          });
+        };
+      })
   }
 
   toggleForecastDisplay() {
@@ -107,31 +114,40 @@ class App extends Component {
             degreeUnit={this.state.fahrCelsToggle} 
             weatherData={this.state.weatherData} />;
     }
-
-    return (
-      <div className="App">
-        <div className='main-section'>
-          <Banner />
-          <Search sendLocation={(location) => this.getLocation(location)}/>
-        </div>
-        <CurrentWeather 
-          data={this.state.data} 
-          degreeUnit={this.state.fahrCelsToggle} 
-          weatherData={this.state.weatherData} />
-        <div className='forecast-holder'>
-          <div className='display-info' >
-            <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
-            <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
-            <button onClick={this.toggleForecastDisplay}> {this.state.tenSevenToggle ? 'Show Ten Day Forecast' : 'Show Seven Hour Forecast'} </button>
-          </div>
-          <div className='card-holder'>
-            {display} 
-          </div>
+    if(!this.getNParse('weathrlyHometown')) {
+      return (
+        <div className="welcome-div">
+          <Welcome sendLocation={(location) => this.getLocation(location)} />
+          <Search placeholderText={this.state.placeholderText} sendLocation={(location) => this.getLocation(location)} />      
         </div>
 
-      </div>
-    );
-  }
+        )
+    } else {
+        return (
+          <div className="App">
+            <div className='main-section'>
+              <Banner />
+              <Search placeholderText={this.state.placeholderText} sendLocation={(location) => this.getLocation(location)}/>
+            </div>
+            <CurrentWeather 
+              data={this.state.data} 
+              degreeUnit={this.state.fahrCelsToggle} 
+              weatherData={this.state.weatherData} />
+            <div className='forecast-holder'>
+              <div className='display-info' >
+                <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
+                <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
+                <button onClick={this.toggleForecastDisplay}> {this.state.tenSevenToggle ? 'Show Ten Day Forecast' : 'Show Seven Hour Forecast'} </button>
+              </div>
+              <div className='card-holder'>
+                {display} 
+              </div>
+            </div>
+
+          </div>
+        );
+      }
+    }
 }
 
 
