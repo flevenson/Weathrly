@@ -32,16 +32,16 @@ class App extends Component {
   }
 
   formatInput(location) {
-    if (location.includes(",")) {
-      let splitLocation = location.split(",");
+    if (location.includes(',')) {
+      let splitLocation = location.split(',');
       let searchState = splitLocation[1].trim();
-      let searchCity = splitLocation[0].replace(/\s+/g, "_");
+      let searchCity = splitLocation[0].replace(/\s+/g, '_');
 
       return (searchState + '/' + searchCity);
     } else if (location.length === 5) {
       return location;
     } else {
-      console.log("formatInput not working");
+      console.log('formatInput not working');
     }
   }
 
@@ -116,7 +116,7 @@ class App extends Component {
     }
     if (!this.getNParse('weathrlyHometown')) {
       return (
-        <div className="welcome-div">
+        <div className='welcome-div'>
           <Welcome sendLocation={(location) => this.getLocation(location)} />
           <Search placeholderText={this.state.placeholderText} sendLocation={(location) => this.getLocation(location)} />      
         </div>
@@ -124,10 +124,12 @@ class App extends Component {
       );
     } else {
       return (
-        <div className="App">
+        <div className='App'>
           <div className='main-section'>
-            <Banner />
+             <div className='site-header'>
+                <h1 className='site-title'>Weathrly</h1>
             <Search placeholderText={this.state.placeholderText} sendLocation={(location) => this.getLocation(location)}/>
+             </div>
           </div>
           <CurrentWeather 
             data={this.state.data} 
@@ -136,8 +138,18 @@ class App extends Component {
           <div className='forecast-holder'>
             <div className='display-info' >
               <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
-              <button onClick={this.toggleFahrCels}>{this.state.fahrCelsToggle ? 'Change to °C' : 'Change to °F'} </button>
-              <button onClick={this.toggleForecastDisplay}> {this.state.tenSevenToggle ? 'Show Ten Day Forecast' : 'Show Seven Hour Forecast'} </button>
+              <div className='toggle-btn-div'>
+              <button 
+                onClick={this.toggleFahrCels} 
+                className='fahr-cels-btn toggle-btns'>
+                {this.state.fahrCelsToggle ? '°C' : '°F'}
+              </button>
+              <button 
+                onClick={this.toggleForecastDisplay} 
+                className='forecast-btn toggle-btns'> 
+                {this.state.tenSevenToggle ? '10 Day Forecast' : '7 Hour Forecast'} 
+              </button>
+            </div>
             </div>
             <div className='card-holder'>
               {display} 

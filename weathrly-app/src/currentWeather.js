@@ -47,27 +47,20 @@ class CurrentWeather extends Component {
           <div className="grid-div currentCity">
             <h2>
               {this.props.weatherData.current_observation.display_location.full}
+              <span className="currentDate"> {this.props.weatherData.current_observation.local_time_rfc822.substr(0, 14)} </span>
             </h2>
           </div>
           <div className="grid-div currentTemp">        
+            <section className="icon-conditions-div">
+              <img
+                src={Icons[this.props.weatherData.current_observation.weather]} 
+                alt="Icon representing current weather conditions"
+                className="current-weather-icon"
+              />
+            </section>
             <h1>
               {currentTempUnit}
             </h1>
-          </div>
-          <section className="icon-conditions-div">
-            <img
-              src={Icons[this.props.weatherData.current_observation.weather]} 
-              alt="Icon representing current weather conditions"
-              className="current-weather-icon"
-            />
-            {/*<h6 className="currentConditions">
-            {this.props.weatherData.current_observation.weather}
-          </h6>*/}
-          </section>
-          <div className="grid-div currentDate">
-            <h3>
-              {this.props.weatherData.current_observation.local_time_rfc822.substr(0, 14)}
-            </h3>
           </div>
           <div className="grid-div currentHighLow-div">
             <h2 className="currentHigh">
