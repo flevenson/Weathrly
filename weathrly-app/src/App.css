@@ -1,86 +1,81 @@
 .App {
   background-color: #FCFBFF;
+  color: #303030;
   display: grid;
+  font-family: 'Nunito', sans-serif;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 22vh 37vh 41vh;
-/*  grid-template-areas: 
-  'current current header'
-  'forecast forecast forecast';*/
   text-align: center;
-  /*font-family: 'Open Sans', sans-serif;*/
-  font-family: 'Nunito', sans-serif;
-  color: #303030;
 }
 
 .main-section {
-  /*grid-area: header;*/
+  align-items: center;
+  display: flex;
   grid-column: 1 /span 2;
   grid-row: 1 / span 1;
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
 }
 
 .welcome {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   grid-column: 1/span 2; 
   grid-row: 1/span 2;
+  justify-content: center;
 }
 
 .welcome-div {
+  align-items: center;
   display:flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .welcome-div .search {
-  position: absolute;
   bottom: 200px;
+  position: absolute;
 }
 
 .forecast-holder {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   border-radius: 10px;
-  margin: 0 auto;
-  width: 98%;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   grid-column: 1 / span 2;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 98%;
 }
 
 .card-holder {
   display: flex;
-  width: 100%;
   justify-content: space-around;}
+  width: 100%;
 
 .display-info {
-  height: 25%;
+  align-self: flex-end;
   display: flex;
   flex-direction: column;
+  height: 25%;
   justify-content: space-around;
-  align-self: flex-end;
   margin: 0 2rem 0 0;
 }
 
 .site-header {
-  grid-column: 1 / span 2;
-  width: 100%;
-  background-color: #57a0ee;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;    
   align-items: center;
+  background-color: #57a0ee;
+  display: flex;
+  grid-column: 1 / span 2;
+  justify-content: space-between;    
+  height: 100%;
   margin: 0 0 1rem 0;
+  width: 100%;
 }
 
 .currentWeatherComponent {
-  grid-column: 1/span 2; 
   color: white;
+  grid-column: 1/span 2; 
 }
