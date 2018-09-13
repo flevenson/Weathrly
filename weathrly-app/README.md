@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ## Project Description
-
+Weathrly is a weather application that draws upon real-time weather data to provide 7-hour and 10-day weather forecasts.
 - 
 
 ## Updating to New Releases
