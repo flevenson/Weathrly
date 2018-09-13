@@ -9,15 +9,7 @@ import data from './mockData.js';
 import Hourly from './Hourly.js';
 import Daily from './Daily.js';
 import apiKey from './apiKey.js';
-// import Icons from './icons.js';
 
-// import Card from './Card.js';
-
-// const mockData = data
-
-
-
-// console.log(mockData.current_observation.display_location.full)
 
 class App extends Component {
   constructor() {
@@ -61,13 +53,12 @@ class App extends Component {
   }
 
   componentWillMount() {
-    if (this.getNParse('weathrly-hometown')) {
-      this.getLocation(this.getNParse('weathrly-hometown'));
+    if (this.getNParse('weathrlyHometown')) {
+      this.getLocation(this.getNParse('weathrlyHometown'));
     }
   }
 
   componentDidMount(apiData) {
-    // let onLoadContent;
     fetch(apiData)
       .then(data => data.json())
       .then(data => {
@@ -79,7 +70,6 @@ class App extends Component {
   }
 
   toggleForecastDisplay() {
-    console.log(this.state);
     this.setState({
       tenSevenToggle: !this.state.tenSevenToggle
     }); 
@@ -92,7 +82,7 @@ class App extends Component {
   }
 
   stringNSet(location) {
-    localStorage.setItem(('weathrly-hometown'), JSON.stringify(location));
+    localStorage.setItem(('weathrlyHometown'), JSON.stringify(location));
   }
 
   getNParse(storedLocation) {
@@ -103,8 +93,6 @@ class App extends Component {
 
   render() {
     let display;
-
-    console.log(this.state.weatherData);
 
     if (this.state.tenSevenToggle && (this.state.weatherData || this.state.zipLocation)) {
       display = 

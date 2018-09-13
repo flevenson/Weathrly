@@ -28,7 +28,6 @@ describe('Search', () => {
   });
 
   it('should accepts properties', () => {
-    console.log(mountedWrapper.prop('sendLocation'))
     expect(mountedWrapper.prop('sendLocation')).toEqual('function passed down');
   });
 
