@@ -15,13 +15,14 @@ class Daily extends Component {
   }
 
   render() {
-    return (this.props.weatherData.forecast.simpleforecast.forecastday.map((day, i) => {
-      return (
-        <div key={i} className="daily-container">
-          <TenDayCard day={day} degreeUnit={this.props.degreeUnit}/>
-        </div>
-      );
-    })
+    return (
+      this.props.weatherData.forecast.simpleforecast.forecastday.map((day, i) => {
+        return (
+          <div key={i} className="daily-container">
+            <TenDayCard day={day} degreeUnit={this.props.degreeUnit}/>
+          </div>
+        );
+      })
 
     );
   }
