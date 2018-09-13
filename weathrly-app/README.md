@@ -10,7 +10,11 @@ Weathrly is a weather application that draws upon real-time weather data to prov
 ![weathrly_desktop](https://github.com/flevenson/Weathrly/blob/master/weathrly-app/public/readme-images/weathrly_desktop.png)
 
 ### Wireframes
-![weathrly_wireframes]()
+![weathrly_wireframe_1](https://github.com/flevenson/Weathrly/blob/master/weathrly-app/public/readme-images/weathrly_wireframe_1.JPG)
+
+![weathrly_wireframe_2](https://github.com/flevenson/Weathrly/blob/master/weathrly-app/public/readme-images/weathrly_wireframe_2.JPG)
+
+![weathrly_wireframe_3](https://github.com/flevenson/Weathrly/blob/master/weathrly-app/public/readme-images/weathrly_wireframe_3.JPG)
 
 ### Workflow
 ![weathrly_workflow](https://github.com/flevenson/Weathrly/blob/master/weathrly-app/public/readme-images/weathrly_workflow.png)
