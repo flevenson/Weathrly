@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './currentWeather.css';
+import './CurrentWeather.css';
 // import data from './mockData.js'
 import Icons from './icons.js';
 

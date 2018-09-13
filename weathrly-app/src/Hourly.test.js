@@ -12,7 +12,7 @@ describe('Hourly', () => {
 
   beforeEach(() => {
     fahrCelsToggle = true;
-    wrapper = shallow(<Hourly data={mockData} degreeUnit={true} weatherData={mockData} />);
+    wrapper = shallow(<Hourly data={mockData} degreeUnit={fahrCelsToggle} weatherData={mockData} />);
     mountedWrapper = mount(<Hourly data={mockData} degreeUnit={fahrCelsToggle} weatherData={mockData} />);
   });
 
