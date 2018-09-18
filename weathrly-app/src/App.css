@@ -1,6 +1,6 @@
 .App {
-  background-color: #FCFBFF;
-  color: #303030;
+  background-color: #EEEEEE;
+
   display: grid;
   font-family: 'Nunito', sans-serif;
   grid-template-columns: 1fr 1fr;
@@ -39,21 +39,33 @@
 }
 
 .forecast-holder {
-  align-items: center;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  grid-column: 1 / span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+
+  background-color: #FFFFFF;
+  /*display: flex;*/
+ /* flex-direction: column;
   justify-content: space-around;
+  align-items: center;*/
+  border-radius: 10px;
   margin: 0 auto;
-  width: 98%;
+  width: 85%;
+  height: 76vh;
+  grid-column: 1 / span 2;
 }
+
+
+
+
 
 .card-holder {
   display: flex;
-  justify-content: space-around;}
-  width: 100%;
+  width: 93%;
+  justify-content: center;
+  margin: 0 0 2rem 0;
+}
+
 
 .display-info {
   align-self: flex-end;
@@ -76,6 +88,5 @@
 }
 
 .currentWeatherComponent {
-  color: white;
-  grid-column: 1/span 2; 
+  grid-column: 1 / span 2;  
 }

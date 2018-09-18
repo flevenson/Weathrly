@@ -3,10 +3,10 @@
   display: -ms-flexbox;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   height: 8rem;
-  margin: 0 auto;
-  width: 12%;
+  margin: 0 0.75rem;
+  width: 8%;
   grid-column: 1/span 2;
   grid-row: 2/span 1;
   border-radius: 10px;
