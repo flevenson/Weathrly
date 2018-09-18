@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import Banner from './Banner.js';
 import Welcome from './Welcome.js';
 import Search from './Search.js';
 import CurrentWeather from './CurrentWeather.js';
@@ -40,14 +38,13 @@ class App extends Component {
       return (searchState + '/' + searchCity);
     } else if (location.length === 5) {
       return location;
-    } else {
-      console.log('formatInput not working');
-    }
+    } 
   }
 
   getLocation(location) {
     let searchLocation = this.formatInput(location);
-    const apiData = `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/${searchLocation}.json`;
+    const apiData = 
+    `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/${searchLocation}.json`;
 
     this.stringNSet(location);
     this.componentDidMount(apiData);
@@ -102,7 +99,9 @@ class App extends Component {
   render() {
     let display;
 
-    if (this.state.tenSevenToggle && (this.state.weatherData || this.state.zipLocation)) {
+    if (this.state.tenSevenToggle 
+      && (this.state.weatherData 
+        || this.state.zipLocation)) {
       display = 
         <Hourly 
           data={this.state.data} 
@@ -119,7 +118,10 @@ class App extends Component {
       return (
         <div className='welcome-div'>
           <Welcome sendLocation={(location) => this.getLocation(location)} />
-          <Search placeholderText={this.state.placeholderText} sendLocation={(location) => this.getLocation(location)} />      
+          <Search 
+            placeholderText={this.state.placeholderText} 
+            sendLocation={(location) => this.getLocation(location)} 
+          />      
         </div>
 
       );
@@ -127,10 +129,13 @@ class App extends Component {
       return (
         <div className='App'>
           <div className='main-section'>
-             <div className='site-header'>
-                <h1 className='site-title'>Weathrly</h1>
-            <Search placeholderText={this.state.placeholderText} sendLocation={(location) => this.getLocation(location)}/>
-             </div>
+            <div className='site-header'>
+              <h1 className='site-title'>Weathrly</h1>
+              <Search 
+                placeholderText={this.state.placeholderText} 
+                sendLocation={(location) => this.getLocation(location)}
+              />
+            </div>
           </div>
 
         {/*<div className='main-background'>*/}
@@ -155,6 +160,7 @@ class App extends Component {
               {this.state.tenSevenToggle ? '10 Day Forecast' : '7 Hour Forecast'} 
             </button>
           </div>
+
             </div>
             <div className='card-holder'>
               {display} 
@@ -171,5 +177,3 @@ class App extends Component {
 
 
 export default App;
-
-// {this.state.currentDisplay === 'currentWeather' && <CurrentWeather data={this.state.data} />}

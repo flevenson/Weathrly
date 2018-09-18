@@ -13,7 +13,6 @@ class Search extends Component {
   }
 
   registerLocation(e) {
-    console.log(this.state);
     this.setState({
       userInput: e.target.value
     });
@@ -30,15 +29,15 @@ class Search extends Component {
     return (
       <form className="search">
         <input 
-				  type="search" 
-				  placeholder={this.props.placeholderText} 
-				  className="search-input" 
-				  onChange={this.registerLocation}>
+          type="search" 
+          placeholder={this.props.placeholderText} 
+          className="search-input" 
+          onChange={this.registerLocation}>
         </input>
-			  <button 
-			    className="submit-btn" 
-			    onClick={this.submitLocation}>Search
-			    </button>
+        <button 
+          className="submit-btn" 
+          onClick={this.submitLocation}>Search
+        </button>
       </form>
     );
   }
