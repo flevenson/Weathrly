@@ -1,6 +1,5 @@
 .App {
   background-color: #EEEEEE;
-
   display: grid;
   font-family: 'Nunito', sans-serif;
   grid-template-columns: 1fr 1fr;
@@ -40,8 +39,7 @@
 
 .forecast-holder {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 50% 1fr 1fr;
 
   background-color: #FFFFFF;
   /*display: flex;*/
@@ -72,6 +70,7 @@
   height: 25%;
   justify-content: space-around;
   margin: 0 2rem 0 0;
+  grid-row: 2 / span 1;
 }
 
 .site-header {
@@ -86,5 +85,12 @@
 }
 
 .currentWeatherComponent {
-  grid-column: 1 / span 2;  
+  grid-row: 1 / span 1  
+}
+
+.site-title {
+  color: white;
+  margin: 0 0 0 3rem;
+  font-size: 4.5rem;
+  font-family: 'Berkshire Swash', cursive;
 }

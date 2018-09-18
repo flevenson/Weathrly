@@ -141,26 +141,25 @@ class App extends Component {
         {/*<div className='main-background'>*/}
             
           <div className='forecast-holder'>
-          <CurrentWeather 
-            data={this.state.data} 
-            degreeUnit={this.state.fahrCelsToggle} 
-            weatherData={this.state.weatherData} 
-          />
-          <div className='display-info' >
-            <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
-            <div className='toggle-btn-div'>
-            <button 
-              onClick={this.toggleFahrCels} 
-              className='fahr-cels-btn toggle-btns'>
-              {this.state.fahrCelsToggle ? '°C' : '°F'}
-            </button>
-            <button 
-              onClick={this.toggleForecastDisplay} 
-              className='forecast-btn toggle-btns'> 
-              {this.state.tenSevenToggle ? '10 Day Forecast' : '7 Hour Forecast'} 
-            </button>
-          </div>
-
+            <CurrentWeather 
+              data={this.state.data} 
+              degreeUnit={this.state.fahrCelsToggle} 
+              weatherData={this.state.weatherData} 
+            />
+            <div className='display-info' >
+              <h1> {this.state.tenSevenToggle ? 'Seven Hour Forecast' : 'Ten Day Forecast'} </h1>
+              <div className='toggle-btn-div'>
+                <button 
+                  onClick={this.toggleFahrCels} 
+                  className='fahr-cels-btn toggle-btns'>
+                  {this.state.fahrCelsToggle ? '°C' : '°F'}
+                </button>
+                <button 
+                  onClick={this.toggleForecastDisplay} 
+                  className='forecast-btn toggle-btns'> 
+                  {this.state.tenSevenToggle ? '10 Day Forecast' : '7 Hour Forecast'} 
+                </button>
+              </div>
             </div>
             <div className='card-holder'>
               {display} 

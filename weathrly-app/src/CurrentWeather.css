@@ -1,23 +1,20 @@
 .currentWeatherComponent {
- /* display: grid;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;*/
+  grid-template-rows: 1fr 1fr 1fr;
   height: 48%;
   width: 100%;
   border-radius: 10px;
-  margin: 2rem 2rem;
   color: black;
-  margin: auto;
   width: 100%;
 }
 
-/*.grid-div {
+.grid-div {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   color: #303030;
-<<<<<<< HEAD
-}*/
+}
 
 .currentCity {
   /*grid-column: 1 / span 1;*/
@@ -27,7 +24,7 @@
   display: flex;
   font-family: 'Nunito', sans-serif;
   justify-content: center;
-  /*margin: -86px 0 0 2rem;*/
+  margin: 26px 0 0 2rem;
 }
 
 .currentDate {
@@ -63,6 +60,7 @@
 /*  height: 20rem;
   display: flex;
   justify-content: space-around;*/
+  align-self: flex-end;
 }
 
 .currentDescription {
