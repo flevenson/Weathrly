@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from './App.js';
 import CurrentWeather from './CurrentWeather.js';
 import mockData from './mockData.js';
 
@@ -9,12 +8,21 @@ describe('CurrentWeather', () => {
   let wrapper;
   let mountedWrapper;
   let fahrCelsToggle;
-  let currentTempUnit;
 
   beforeEach(() => {
     fahrCelsToggle = true;
-    wrapper = shallow(<CurrentWeather data={mockData} degreeUnit={fahrCelsToggle} weatherData={mockData} />);
-    mountedWrapper = mount(<CurrentWeather data={mockData} degreeUnit={fahrCelsToggle} weatherData={mockData} />);
+    wrapper = shallow(
+      <CurrentWeather 
+        data={mockData} 
+        degreeUnit={fahrCelsToggle} 
+        weatherData={mockData} 
+      />);
+    mountedWrapper = mount(
+      <CurrentWeather 
+        data={mockData} 
+        degreeUnit={fahrCelsToggle} 
+        weatherData={mockData} 
+      />);
   });
 
   it('should exist', () => {

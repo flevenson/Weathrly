@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from './App.js';
 import Hourly from './Hourly.js';
 import mockData from './mockData.js';
 
@@ -12,8 +11,18 @@ describe('Hourly', () => {
 
   beforeEach(() => {
     fahrCelsToggle = true;
-    wrapper = shallow(<Hourly data={mockData} degreeUnit={fahrCelsToggle} weatherData={mockData} />);
-    mountedWrapper = mount(<Hourly data={mockData} degreeUnit={fahrCelsToggle} weatherData={mockData} />);
+    wrapper = shallow(
+      <Hourly 
+        data={mockData} 
+        degreeUnit={fahrCelsToggle} 
+        weatherData={mockData} 
+      />);
+    mountedWrapper = mount(
+      <Hourly 
+        data={mockData} 
+        degreeUnit={fahrCelsToggle} w
+        eatherData={mockData} 
+      />);
   });
 
   it('should exist', () => {

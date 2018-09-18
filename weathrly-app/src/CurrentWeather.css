@@ -8,15 +8,15 @@
   margin: 2rem 2rem;
   color: black;
   margin: auto;
-  border-radius: 10px;
+  width: 100%;
 }
 
 /*.grid-div {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Nunito', sans-serif;
   color: #303030;
+<<<<<<< HEAD
 }*/
 
 .currentCity {
@@ -24,6 +24,9 @@
   /*grid-row: 1 / span 1;*/
   font-size: 3rem;
   justify-content: flex-start;
+  display: flex;
+  font-family: 'Nunito', sans-serif;
+  justify-content: center;
   /*margin: -86px 0 0 2rem;*/
 }
 
@@ -36,8 +39,6 @@
   /*grid-row: 1 / span 1;*/
   font-size: 1.5rem;
   justify-self: flex-end;
-  align-self: flex-start;
-  flex-direction: column;
   margin: 2rem 3rem 0 0;
 }
 
@@ -69,30 +70,23 @@
   /*grid-row: 3 / span 1;*/
   width: 30%;
   justify-self: flex-end;
-  align-self: flex-end;
   margin: 0 2rem 1rem 0;
+  width: 30%;
 }
 
 .toggle-btn-div {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 10rem;
 }
 
 .toggle-btns {
-  border-radius: 10px;
   border: 1px solid #57a0ee;
+  border-radius: 10px;
   background-color: white;
-  width: 4.5rem;
   height: 2rem;
+  width: 4.5rem;
 }
 
-.fahr-cels-btn {
-
-}
-
-.forecast-btn {
-
-}
 

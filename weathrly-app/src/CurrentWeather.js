@@ -29,15 +29,23 @@ class CurrentWeather extends Component {
     let currentDescriptionUnit;
 
     if (this.props.degreeUnit && (this.props.weatherData || this.state.zipLocation)) {
-      currentTempUnit = (this.props.weatherData.current_observation.temp_f + "°F");
-      degreeHighUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].high.fahrenheit + "°F");
-      degreeLowUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].low.fahrenheit + "°F");
-      currentDescriptionUnit = this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext;
+      currentTempUnit = 
+        (this.props.weatherData.current_observation.temp_f + "°F");
+      degreeHighUnit = 
+        (this.props.weatherData.forecast.simpleforecast.forecastday[0].high.fahrenheit + "°F");
+      degreeLowUnit = 
+        (this.props.weatherData.forecast.simpleforecast.forecastday[0].low.fahrenheit + "°F");
+      currentDescriptionUnit = 
+        this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext;
     } else if (this.props.weatherData || this.state.zipLocation) {
-      currentTempUnit = (this.props.weatherData.current_observation.temp_c + "°C");
-      degreeHighUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].high.celsius + "°C");
-      degreeLowUnit = (this.props.weatherData.forecast.simpleforecast.forecastday[0].low.celsius + "°C");
-      currentDescriptionUnit = this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext_metric;
+      currentTempUnit = 
+        (this.props.weatherData.current_observation.temp_c + "°C");
+      degreeHighUnit = 
+        (this.props.weatherData.forecast.simpleforecast.forecastday[0].high.celsius + "°C");
+      degreeLowUnit = 
+        (this.props.weatherData.forecast.simpleforecast.forecastday[0].low.celsius + "°C");
+      currentDescriptionUnit = 
+        this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext_metric;
     }
     if (!this.props.weatherData) { 
       return (null);
