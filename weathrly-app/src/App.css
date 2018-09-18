@@ -56,14 +56,12 @@
 }
 
 
-
-
-
 .card-holder {
   display: flex;
   width: 93%;
   justify-content: center;
-  margin: 0 0 2rem 0;
+  margin: 0 auto;
+  grid-column: 1 / span 2;
 }
 
 
