@@ -1,8 +1,8 @@
 .currentWeatherComponent {
-  display: grid;
+ /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  height: 100%;
+  grid-template-rows: 1fr 1fr 1fr;*/
+  height: 48%;
   width: 100%;
   border-radius: 10px;
   margin: 2rem 2rem;
@@ -20,11 +20,11 @@
 }
 
 .currentCity {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 1;
   grid-row: 1 / span 1;
   font-size: 3rem;
   justify-content: flex-start;
-  margin: 0 0 0 2rem;
+  margin: -86px 0 0 2rem;
 }
 
 .currentDate {
@@ -53,20 +53,20 @@
 }
 
 .current-weather-icon {
-  height: 29rem;
+  height: 25rem;
 }
 
 .currentTemp {
-  grid-column: 1 / span 2;
-  grid-row: 2 / span 2;
-  font-size: 9rem;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  font-size: 7rem;
   height: 20rem;
   display: flex;
   justify-content: space-around;
 }
 
 .currentDescription {
-  grid-column: 3 / span 1;
+  grid-column: 2 / span 1;
   grid-row: 3 / span 1;
   width: 30%;
   justify-self: flex-end;
