@@ -30,20 +30,20 @@ class CurrentWeather extends Component {
 
     if (this.props.degreeUnit && (this.props.weatherData || this.state.zipLocation)) {
       currentTempUnit = 
-        (this.props.weatherData.current_observation.temp_f + "°F");
+        (this.props.weatherData.current_observation.temp_f.toFixed(0) + "°F");
       degreeHighUnit = 
-        (this.props.weatherData.forecast.simpleforecast.forecastday[0].high.fahrenheit + "°F");
+        (parseFloat(this.props.weatherData.forecast.simpleforecast.forecastday[0].high.fahrenheit) + "°F");
       degreeLowUnit = 
-        (this.props.weatherData.forecast.simpleforecast.forecastday[0].low.fahrenheit + "°F");
+        (parseFloat(this.props.weatherData.forecast.simpleforecast.forecastday[0].low.fahrenheit) + "°F");
       currentDescriptionUnit = 
         this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext;
     } else if (this.props.weatherData || this.state.zipLocation) {
       currentTempUnit = 
-        (this.props.weatherData.current_observation.temp_c + "°C");
+        (this.props.weatherData.current_observation.temp_c.toFixed(0) + "°C");
       degreeHighUnit = 
-        (this.props.weatherData.forecast.simpleforecast.forecastday[0].high.celsius + "°C");
+        (parseFloat(this.props.weatherData.forecast.simpleforecast.forecastday[0].high.celsius) + "°C");
       degreeLowUnit = 
-        (this.props.weatherData.forecast.simpleforecast.forecastday[0].low.celsius + "°C");
+        (parseFloat(this.props.weatherData.forecast.simpleforecast.forecastday[0].low.celsius) + "°C");
       currentDescriptionUnit = 
         this.props.weatherData.forecast.txt_forecast.forecastday[0].fcttext_metric;
     }
@@ -56,14 +56,26 @@ class CurrentWeather extends Component {
             <h2>
               {this.props.weatherData.current_observation.display_location.full}
             </h2>
-            <span className="currentDate"> 
+            <div className="currentDate"> 
               {this.props.weatherData.current_observation.local_time_rfc822.substr(0, 14)} 
-            </span>
+            </div>
           </div>
           <div className="grid-div currentTemp">        
             <h1>
               {currentTempUnit}
             </h1>
+            <div className="grid-div currentHighLow-div">
+              <h2 className="currentHigh">
+              H: 
+                {console.log(degreeHighUnit)}
+                {degreeHighUnit}
+                
+              </h2>
+              <h2 className="currentLow">
+              L: 
+                {degreeLowUnit}
+              </h2>
+            </div>
           </div>
             {/*<section className="icon-conditions-div">*/}
               <img
@@ -72,16 +84,6 @@ class CurrentWeather extends Component {
                 className="current-weather-icon"
               />
             {/*</section>*/}
-          <div className="grid-div currentHighLow-div">
-            <h2 className="currentHigh">
-            H: 
-              {degreeHighUnit}
-            </h2>
-            <h2 className="currentLow">
-            L: 
-              {degreeLowUnit}
-            </h2>
-          </div>
           <div className="grid-div currentDescription">        
             <p>
               {currentDescriptionUnit}

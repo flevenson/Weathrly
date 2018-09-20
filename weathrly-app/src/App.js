@@ -12,7 +12,8 @@ import apiKey from './apiKey.js';
 class App extends Component {
   constructor() {
     super();
-
+    this.searchState;
+    this.searchCity;
     this.state = {
       weatherData: null,
       zipLocation: null,
@@ -20,7 +21,8 @@ class App extends Component {
       currentDisplay: '',
       tenSevenToggle: true,
       fahrCelsToggle: true,
-      placeholderText: 'Enter (City, State) or zip code'
+      placeholderText: 'Enter (City, State) or zip code',
+      notFound: false
     };
     this.toggleForecastDisplay = this.toggleForecastDisplay.bind(this);
     this.toggleFahrCels = this.toggleFahrCels.bind(this);
@@ -32,19 +34,21 @@ class App extends Component {
   formatInput(location) {
     if (location.includes(',')) {
       let splitLocation = location.split(',');
-      let searchState = splitLocation[1].trim();
-      let searchCity = splitLocation[0].replace(/\s+/g, '_');
+      this.searchState = splitLocation[1].trim();
+      this.searchCity = splitLocation[0].replace(/\s+/g, '_');
 
-      return (searchState + '/' + searchCity);
+      return (this.searchState + '/' + this.searchCity);
     } else if (location.length === 5) {
       return location;
     } 
   }
 
+// http://api.wunderground.com/api/068a2ceade60cbb9/conditions/hourly/forecast10day/q/${searchLocation}.json
+
   getLocation(location) {
     let searchLocation = this.formatInput(location);
     const apiData = 
-    `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/${searchLocation}.json`;
+    `http://api.wunderground.com/api/${apiKey}/conditions/hourly/forecast10day/q/${this.searchState}/${this.searchCity}.json`;
 
     this.stringNSet(location);
     this.componentDidMount(apiData);
@@ -60,6 +64,15 @@ class App extends Component {
     fetch(apiData)
       .then(data => data.json())
       .then(data => {
+        console.log('componentDidMount is working')
+        // if (data.response.results[0].city !== this.searchCity || 
+        //   data.response.results[0].state !== this.searchState) {
+        // console.log('componentDidMount is working')
+        //   this.setState({
+        //     notFound: true
+        //   })
+        //   return
+        // }
         this.setState({
           weatherData: data
         });
@@ -165,8 +178,10 @@ class App extends Component {
               {display} 
             </div>
           </div>
-        {/*</div>*/}
 
+          <div className='footer'>
+          © 2018
+          </div>
         </div>
       );
     }

@@ -15,9 +15,9 @@ class SevenHourCard extends Component {
     let currentTempUnit;
 
     if (this.props.degreeUnit) {
-      currentTempUnit = (this.props.hour.temp.english + "°F");
+      currentTempUnit = (parseFloat(this.props.hour.temp.english) + "°F");
     } else {
-      currentTempUnit = (this.props.hour.temp.metric + "°C");
+      currentTempUnit = (parseFloat(this.props.hour.temp.metric) + "°C");
     }
 
 

@@ -15,8 +15,8 @@ class TenDayCard extends Component {
     let degreeLowUnit;
 
     if (this.props.degreeUnit) {
-      degreeHighUnit = (this.props.day.high.fahrenheit + "°F");
-      degreeLowUnit = (this.props.day.low.fahrenheit + "°F");
+      degreeHighUnit = (parseFloat(this.props.day.high.fahrenheit) + "°F");
+      degreeLowUnit = (parseFloat(this.props.day.low.fahrenheit) + "°F");
     } else {
       degreeHighUnit = (this.props.day.high.celsius + "°C");
       degreeLowUnit = (this.props.day.low.celsius + "°C");
