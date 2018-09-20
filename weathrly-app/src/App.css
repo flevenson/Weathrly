@@ -67,9 +67,9 @@
   align-self: flex-end;
   display: flex;
   flex-direction: column;
-  height: 25%;
+  height: 50%;
   justify-content: space-around;
-  margin: 0 2rem 0 0;
+  margin: 0 auto;
   grid-row: 2 / span 1;
 }
 
@@ -93,4 +93,17 @@
   margin: 0 0 0 3rem;
   font-size: 4.5rem;
   font-family: 'Berkshire Swash', cursive;
+}
+
+.footer {
+  height: 2rem;
+  background-color: #57a0ee;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  width: 100%;
+  grid-column: 1 / span 2;
+  grid-row: 4 / span 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
